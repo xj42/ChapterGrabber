@@ -85,5 +85,5 @@ namespace JarrettVance.ChapterTools
     {
         Reload();
     }
-  }
+    }
 }

@@ -50,11 +50,14 @@ namespace JarrettVance.ChapterTools
               lblStatus.Text += "Saving to '" + path + ".chapters" + "'" + Environment.NewLine;
               pgc.Save(path + ".chapters");
 
-              lblStatus.Text += "Saving to '" + path + ".xml" + "'" + Environment.NewLine;
+              lblStatus.Text += "Saving XML to '" + path + ".xml" + "'" + Environment.NewLine;
               pgc.SaveXml(path + ".xml");
 
-              lblStatus.Text += "Saving to '" + path + ".chapters.txt" + "'" + Environment.NewLine;
+              lblStatus.Text += "Saving text to '" + path + ".chapters.txt" + "'" + Environment.NewLine;
               pgc.SaveText(path + ".chapters.txt");
+
+              lblStatus.Text += "Saving QP to '" + path + ".txt" + "'" + Environment.NewLine;
+              pgc.SaveQpfile(path + ".txt");
 
               lblStatus.Text += "Done.";
           }

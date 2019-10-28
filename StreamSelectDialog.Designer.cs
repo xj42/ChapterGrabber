@@ -57,7 +57,7 @@
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.AutoSize = true;
             this.btnOK.Image = global::JarrettVance.ChapterTools.Properties.Resources.accept;
-            this.btnOK.Location = new System.Drawing.Point(291, 3);
+            this.btnOK.Location = new System.Drawing.Point(527, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(64, 30);
             this.btnOK.TabIndex = 1;
@@ -72,16 +72,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 15);
+            this.listBox1.Location = new System.Drawing.Point(10, 10);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(431, 186);
+            this.listBox1.Size = new System.Drawing.Size(665, 251);
             this.listBox1.TabIndex = 2;
             this.listBox1.DoubleClick += new System.EventHandler(this.btnOK_Click);
             // 
             // lblCounts
             // 
             this.lblCounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCounts.Location = new System.Drawing.Point(342, 204);
+            this.lblCounts.Location = new System.Drawing.Point(573, 274);
             this.lblCounts.Name = "lblCounts";
             this.lblCounts.Size = new System.Drawing.Size(99, 19);
             this.lblCounts.TabIndex = 9;
@@ -93,7 +93,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 209);
+            this.label1.Location = new System.Drawing.Point(7, 275);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 16);
             this.label1.TabIndex = 8;
@@ -106,9 +106,9 @@
             this.flowLayoutPanel1.Controls.Add(this.checkBoxLessThan20mins);
             this.flowLayoutPanel1.Controls.Add(this.checkBoxLessThan5);
             this.flowLayoutPanel1.Controls.Add(this.checkBoxGreaterThan50);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 226);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 292);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(431, 27);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(667, 27);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // checkBoxLessThan20mins
@@ -156,7 +156,7 @@
             this.btnCancel.AutoSize = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::JarrettVance.ChapterTools.Properties.Resources.cancel;
-            this.btnCancel.Location = new System.Drawing.Point(361, 3);
+            this.btnCancel.Location = new System.Drawing.Point(597, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(67, 30);
             this.btnCancel.TabIndex = 10;
@@ -171,9 +171,9 @@
             this.flowLayoutPanel2.Controls.Add(this.btnCancel);
             this.flowLayoutPanel2.Controls.Add(this.btnOK);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(13, 252);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(7, 318);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(431, 36);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(667, 36);
             this.flowLayoutPanel2.TabIndex = 11;
             // 
             // grpResults
@@ -183,18 +183,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpResults.Controls.Add(this.picSearch);
             this.grpResults.Controls.Add(this.flowResults);
-            this.grpResults.Location = new System.Drawing.Point(450, 15);
+            this.grpResults.Location = new System.Drawing.Point(768, 12);
             this.grpResults.Name = "grpResults";
-            this.grpResults.Size = new System.Drawing.Size(329, 264);
+            this.grpResults.Size = new System.Drawing.Size(0, 80);
             this.grpResults.TabIndex = 12;
             this.grpResults.TabStop = false;
             this.grpResults.Text = "Database";
+            this.grpResults.Visible = false;
             // 
             // picSearch
             // 
             this.picSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picSearch.Image = ((System.Drawing.Image)(resources.GetObject("picSearch.Image")));
-            this.picSearch.Location = new System.Drawing.Point(302, 1);
+            this.picSearch.Location = new System.Drawing.Point(-21, 1);
             this.picSearch.Name = "picSearch";
             this.picSearch.Size = new System.Drawing.Size(16, 11);
             this.picSearch.TabIndex = 10;
@@ -217,7 +218,7 @@
             this.flowResults.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowResults.Location = new System.Drawing.Point(6, 16);
             this.flowResults.Name = "flowResults";
-            this.flowResults.Size = new System.Drawing.Size(317, 238);
+            this.flowResults.Size = new System.Drawing.Size(0, 54);
             this.flowResults.TabIndex = 14;
             this.flowResults.WrapContents = false;
             // 
@@ -257,7 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(791, 291);
+            this.ClientSize = new System.Drawing.Size(684, 361);
             this.ControlBox = false;
             this.Controls.Add(this.grpResults);
             this.Controls.Add(this.flowLayoutPanel2);

@@ -195,7 +195,7 @@ namespace BDInfo
                 Array.Copy(data, 0, fileType, 0, fileType.Length);
                 
                 FileType = ASCIIEncoding.ASCII.GetString(fileType);
-                if ((FileType != "MPLS0100" && FileType != "MPLS0200") 
+                if ((FileType != "MPLS0100" && FileType != "MPLS0200" && FileType != "MPLS0300") 
                     /*|| data[45] != 1*/)
                 {
                     throw new Exception(string.Format(

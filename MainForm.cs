@@ -55,9 +55,9 @@ namespace JarrettVance.ChapterTools
     private void frmMain_Load(object sender, System.EventArgs e)
     {
         FontHelper.RegisterFont(Resources.fontawesome_webfont);
-      this.Height = Math.Min(560, Screen.GetWorkingArea(this).Height - 30);
+      //this.Height = Math.Min(560, Screen.GetWorkingArea(this).Height - 30);
       this.listChapters.Columns.Add("Time", 80, HorizontalAlignment.Left);
-      this.listChapters.Columns.Add("Name", 190, HorizontalAlignment.Left);
+      this.listChapters.Columns.Add("Name", 320, HorizontalAlignment.Left);
       //this.listChapters.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
 
       //try
@@ -118,18 +118,22 @@ namespace JarrettVance.ChapterTools
       OnNew();
 
 //#if RELEASE
+      /*
       if (Settings.Default.AutoUseDatabase && 
           (Settings.Default.DatabaseApiKey == "a784c7d08e5fe192ca247d1a2dd5c27f" || string.IsNullOrEmpty(Settings.Default.DatabaseApiKey)))
       {
           MessageBox.Show(this, "Please enter your API key to access the database.");
           miDatabaseCredentials_Click(null, null);
       }
+      */
 //#endif
 
       if (!string.IsNullOrEmpty(StartupFile)) OpenFile(StartupFile);
 
+      /*
       if (Settings.Default.AutoCheckForUpdate)
           ThreadPool.QueueUserWorkItem((w) => Updater.CheckForUpdate(ShowUpdateDialog));
+      */
     }
 
     void ShowUpdateDialog(Version appVersion, Version newVersion, XDocument doc)

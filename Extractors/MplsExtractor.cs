@@ -35,7 +35,7 @@ namespace JarrettVance.ChapterTools.Extractors
 
       string fileType = ASCIIEncoding.ASCII.GetString(data, 0, 8);
 
-      if ((fileType != "MPLS0100" && fileType != "MPLS0200")
+      if ((fileType != "MPLS0100" && fileType != "MPLS0200" && fileType != "MPLS0300")
         /*|| data[45] != 1*/)
       {
         throw new Exception(string.Format(
