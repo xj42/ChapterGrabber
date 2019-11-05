@@ -56,8 +56,9 @@ namespace JarrettVance.ChapterTools
     {
         FontHelper.RegisterFont(Resources.fontawesome_webfont);
       //this.Height = Math.Min(560, Screen.GetWorkingArea(this).Height - 30);
+      this.Height = this.Height - 20;
       this.listChapters.Columns.Add("Time", 80, HorizontalAlignment.Left);
-      this.listChapters.Columns.Add("Name", 320, HorizontalAlignment.Left);
+      this.listChapters.Columns.Add("Name", 360, HorizontalAlignment.Left);
       //this.listChapters.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
 
       //try

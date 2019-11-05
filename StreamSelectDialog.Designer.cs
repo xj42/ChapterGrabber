@@ -57,9 +57,10 @@
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.AutoSize = true;
             this.btnOK.Image = global::JarrettVance.ChapterTools.Properties.Resources.accept;
-            this.btnOK.Location = new System.Drawing.Point(527, 3);
+            this.btnOK.Location = new System.Drawing.Point(454, 0);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(0);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(64, 30);
+            this.btnOK.Size = new System.Drawing.Size(75, 30);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -72,18 +73,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(10, 10);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(665, 251);
+            this.listBox1.Size = new System.Drawing.Size(614, 274);
             this.listBox1.TabIndex = 2;
             this.listBox1.DoubleClick += new System.EventHandler(this.btnOK_Click);
             // 
             // lblCounts
             // 
             this.lblCounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCounts.Location = new System.Drawing.Point(573, 274);
+            this.lblCounts.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblCounts.Location = new System.Drawing.Point(492, 292);
             this.lblCounts.Name = "lblCounts";
-            this.lblCounts.Size = new System.Drawing.Size(99, 19);
+            this.lblCounts.Size = new System.Drawing.Size(130, 16);
             this.lblCounts.TabIndex = 9;
             this.lblCounts.Text = "loading...";
             this.lblCounts.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -91,13 +94,12 @@
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 275);
+            this.label1.Location = new System.Drawing.Point(10, 292);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 16);
+            this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "Hide";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // flowLayoutPanel1
             // 
@@ -106,9 +108,9 @@
             this.flowLayoutPanel1.Controls.Add(this.checkBoxLessThan20mins);
             this.flowLayoutPanel1.Controls.Add(this.checkBoxLessThan5);
             this.flowLayoutPanel1.Controls.Add(this.checkBoxGreaterThan50);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 292);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 288);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(667, 27);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(439, 25);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // checkBoxLessThan20mins
@@ -118,7 +120,7 @@
             this.checkBoxLessThan20mins.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLessThan20mins.Location = new System.Drawing.Point(3, 3);
             this.checkBoxLessThan20mins.Name = "checkBoxLessThan20mins";
-            this.checkBoxLessThan20mins.Size = new System.Drawing.Size(111, 17);
+            this.checkBoxLessThan20mins.Size = new System.Drawing.Size(119, 19);
             this.checkBoxLessThan20mins.TabIndex = 3;
             this.checkBoxLessThan20mins.Text = "Less than 20 mins";
             this.checkBoxLessThan20mins.UseVisualStyleBackColor = true;
@@ -129,9 +131,9 @@
             this.checkBoxLessThan5.AutoSize = true;
             this.checkBoxLessThan5.Checked = true;
             this.checkBoxLessThan5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxLessThan5.Location = new System.Drawing.Point(120, 3);
+            this.checkBoxLessThan5.Location = new System.Drawing.Point(128, 3);
             this.checkBoxLessThan5.Name = "checkBoxLessThan5";
-            this.checkBoxLessThan5.Size = new System.Drawing.Size(125, 17);
+            this.checkBoxLessThan5.Size = new System.Drawing.Size(132, 19);
             this.checkBoxLessThan5.TabIndex = 6;
             this.checkBoxLessThan5.Text = "Less than 5 chapters";
             this.checkBoxLessThan5.UseVisualStyleBackColor = true;
@@ -142,9 +144,9 @@
             this.checkBoxGreaterThan50.AutoSize = true;
             this.checkBoxGreaterThan50.Checked = true;
             this.checkBoxGreaterThan50.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGreaterThan50.Location = new System.Drawing.Point(251, 3);
+            this.checkBoxGreaterThan50.Location = new System.Drawing.Point(266, 3);
             this.checkBoxGreaterThan50.Name = "checkBoxGreaterThan50";
-            this.checkBoxGreaterThan50.Size = new System.Drawing.Size(144, 17);
+            this.checkBoxGreaterThan50.Size = new System.Drawing.Size(154, 19);
             this.checkBoxGreaterThan50.TabIndex = 7;
             this.checkBoxGreaterThan50.Text = "Greater than 50 chapters";
             this.checkBoxGreaterThan50.UseVisualStyleBackColor = true;
@@ -156,9 +158,10 @@
             this.btnCancel.AutoSize = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::JarrettVance.ChapterTools.Properties.Resources.cancel;
-            this.btnCancel.Location = new System.Drawing.Point(597, 3);
+            this.btnCancel.Location = new System.Drawing.Point(533, 0);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(67, 30);
+            this.btnCancel.Size = new System.Drawing.Size(78, 30);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -171,9 +174,10 @@
             this.flowLayoutPanel2.Controls.Add(this.btnCancel);
             this.flowLayoutPanel2.Controls.Add(this.btnOK);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(7, 318);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(14, 322);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(667, 36);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(611, 30);
             this.flowLayoutPanel2.TabIndex = 11;
             // 
             // grpResults
@@ -183,9 +187,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpResults.Controls.Add(this.picSearch);
             this.grpResults.Controls.Add(this.flowResults);
-            this.grpResults.Location = new System.Drawing.Point(768, 12);
+            this.grpResults.Location = new System.Drawing.Point(896, 14);
             this.grpResults.Name = "grpResults";
-            this.grpResults.Size = new System.Drawing.Size(0, 80);
+            this.grpResults.Size = new System.Drawing.Size(0, 13);
             this.grpResults.TabIndex = 12;
             this.grpResults.TabStop = false;
             this.grpResults.Text = "Database";
@@ -195,9 +199,9 @@
             // 
             this.picSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picSearch.Image = ((System.Drawing.Image)(resources.GetObject("picSearch.Image")));
-            this.picSearch.Location = new System.Drawing.Point(-21, 1);
+            this.picSearch.Location = new System.Drawing.Point(-24, 1);
             this.picSearch.Name = "picSearch";
-            this.picSearch.Size = new System.Drawing.Size(16, 11);
+            this.picSearch.Size = new System.Drawing.Size(19, 13);
             this.picSearch.TabIndex = 10;
             this.picSearch.TabStop = false;
             this.picSearch.Visible = false;
@@ -216,9 +220,9 @@
             this.flowResults.Controls.Add(this.searchResultItem2);
             this.flowResults.Controls.Add(this.searchResultItem3);
             this.flowResults.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowResults.Location = new System.Drawing.Point(6, 16);
+            this.flowResults.Location = new System.Drawing.Point(7, 18);
             this.flowResults.Name = "flowResults";
-            this.flowResults.Size = new System.Drawing.Size(0, 54);
+            this.flowResults.Size = new System.Drawing.Size(0, 0);
             this.flowResults.TabIndex = 14;
             this.flowResults.WrapContents = false;
             // 
@@ -229,7 +233,7 @@
             this.searchResultItem1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchResultItem1.Location = new System.Drawing.Point(3, 3);
             this.searchResultItem1.Name = "searchResultItem1";
-            this.searchResultItem1.Size = new System.Drawing.Size(285, 35);
+            this.searchResultItem1.Size = new System.Drawing.Size(332, 40);
             this.searchResultItem1.TabIndex = 0;
             // 
             // searchResultItem2
@@ -237,9 +241,9 @@
             this.searchResultItem2.BackColor = System.Drawing.SystemColors.Window;
             this.searchResultItem2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchResultItem2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchResultItem2.Location = new System.Drawing.Point(3, 44);
+            this.searchResultItem2.Location = new System.Drawing.Point(3, 49);
             this.searchResultItem2.Name = "searchResultItem2";
-            this.searchResultItem2.Size = new System.Drawing.Size(285, 35);
+            this.searchResultItem2.Size = new System.Drawing.Size(332, 40);
             this.searchResultItem2.TabIndex = 1;
             // 
             // searchResultItem3
@@ -247,18 +251,18 @@
             this.searchResultItem3.BackColor = System.Drawing.SystemColors.Window;
             this.searchResultItem3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchResultItem3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchResultItem3.Location = new System.Drawing.Point(3, 85);
+            this.searchResultItem3.Location = new System.Drawing.Point(3, 95);
             this.searchResultItem3.Name = "searchResultItem3";
-            this.searchResultItem3.Size = new System.Drawing.Size(285, 35);
+            this.searchResultItem3.Size = new System.Drawing.Size(332, 40);
             this.searchResultItem3.TabIndex = 2;
             // 
             // StreamSelectDialog
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(684, 361);
+            this.ClientSize = new System.Drawing.Size(634, 361);
             this.ControlBox = false;
             this.Controls.Add(this.grpResults);
             this.Controls.Add(this.flowLayoutPanel2);
@@ -266,8 +270,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.listBox1);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(650, 400);
             this.Name = "StreamSelectDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -282,7 +288,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             this.flowResults.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
     }
 

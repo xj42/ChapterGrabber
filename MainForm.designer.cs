@@ -143,43 +143,39 @@ namespace JarrettVance.ChapterTools
             this.tsslLang = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.picSearch = new System.Windows.Forms.PictureBox();
-            this.toolTipTitle = new System.Windows.Forms.ToolTip(this.components);
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.grpResults = new System.Windows.Forms.GroupBox();
-            this.flowResults = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.linkDatabase = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.btnTitles = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.picDb = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtChapterTime = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtChapterName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnDn = new System.Windows.Forms.Button();
+            this.toolTipTitle = new System.Windows.Forms.ToolTip(this.components);
+            this.btnTitles = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.linkDatabase = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.grpResults = new System.Windows.Forms.GroupBox();
+            this.flowResults = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.listChapters = new System.Windows.Forms.ListView();
-            this.searchResultItem1 = new JarrettVance.ChapterTools.SearchResultItem();
-            this.searchResultItem2 = new JarrettVance.ChapterTools.SearchResultItem();
-            this.searchResultItem3 = new JarrettVance.ChapterTools.SearchResultItem();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtChapterTime = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtChapterName = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDb)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.grpResults.SuspendLayout();
-            this.flowResults.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grpResults.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDb)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -430,6 +426,7 @@ namespace JarrettVance.ChapterTools
             // 
             // statusStrip1
             // 
+            this.statusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslStatus,
             this.tsslDuration,
@@ -465,9 +462,90 @@ namespace JarrettVance.ChapterTools
             this.toolTip1.SetToolTip(this.picSearch, "Searching...");
             this.picSearch.Visible = false;
             // 
+            // txtTitle
+            // 
+            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTitle.Location = new System.Drawing.Point(72, 7);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(25, 23);
+            this.txtTitle.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.txtTitle, "Please enter the title of your movie.");
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
+            // 
+            // picDb
+            // 
+            this.picDb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picDb.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.picDb.Location = new System.Drawing.Point(-64, 9);
+            this.picDb.Name = "picDb";
+            this.picDb.Size = new System.Drawing.Size(16, 16);
+            this.picDb.TabIndex = 8;
+            this.picDb.TabStop = false;
+            this.toolTip1.SetToolTip(this.picDb, "Database syncing...");
+            this.picDb.Visible = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Image = global::JarrettVance.ChapterTools.Properties.Resources.add;
+            this.btnAdd.Location = new System.Drawing.Point(423, 278);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(24, 24);
+            this.btnAdd.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.btnAdd, "Add chapter");
+            this.btnAdd.Click += new System.EventHandler(this.ChapterControls_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Image = global::JarrettVance.ChapterTools.Properties.Resources.delete;
+            this.btnDelete.Location = new System.Drawing.Point(451, 278);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(24, 24);
+            this.btnDelete.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnDelete, "Remove chapter");
+            this.btnDelete.Click += new System.EventHandler(this.ChapterControls_Click);
+            // 
+            // btnUp
+            // 
+            this.btnUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUp.Image = global::JarrettVance.ChapterTools.Properties.Resources.arrow_up;
+            this.btnUp.Location = new System.Drawing.Point(367, 278);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(24, 24);
+            this.btnUp.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btnUp, "Move name up");
+            this.btnUp.Click += new System.EventHandler(this.ChapterControls_Click);
+            // 
+            // btnDn
+            // 
+            this.btnDn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDn.Image = global::JarrettVance.ChapterTools.Properties.Resources.arrow_down;
+            this.btnDn.Location = new System.Drawing.Point(395, 278);
+            this.btnDn.Name = "btnDn";
+            this.btnDn.Size = new System.Drawing.Size(24, 24);
+            this.btnDn.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btnDn, "Move name down");
+            this.btnDn.Click += new System.EventHandler(this.ChapterControls_Click);
+            // 
             // toolTipTitle
             // 
             this.toolTipTitle.ToolTipTitle = "Title Invalid";
+            // 
+            // btnTitles
+            // 
+            this.btnTitles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTitles.ContextMenuStrip = this.menuTitles;
+            this.btnTitles.Image = global::JarrettVance.ChapterTools.Properties.Resources.apply_bad;
+            this.btnTitles.Location = new System.Drawing.Point(-285, 5);
+            this.btnTitles.Name = "btnTitles";
+            this.btnTitles.Size = new System.Drawing.Size(24, 24);
+            this.btnTitles.TabIndex = 8;
+            this.toolTipTitle.SetToolTip(this.btnTitles, "Choose a suggested title.");
+            this.btnTitles.UseVisualStyleBackColor = true;
+            this.btnTitles.Click += new System.EventHandler(this.btnTitles_Click);
             // 
             // splitContainer1
             // 
@@ -480,10 +558,56 @@ namespace JarrettVance.ChapterTools
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(0, 63);
+            this.splitContainer1.Size = new System.Drawing.Size(54, 63);
             this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 8;
             this.splitContainer1.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.linkDatabase);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(9, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(311, 26);
+            this.panel1.TabIndex = 14;
+            this.panel1.Visible = false;
+            // 
+            // linkDatabase
+            // 
+            this.linkDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkDatabase.AutoSize = true;
+            this.linkDatabase.Location = new System.Drawing.Point(226, 6);
+            this.linkDatabase.Name = "linkDatabase";
+            this.linkDatabase.Size = new System.Drawing.Size(85, 15);
+            this.linkDatabase.TabIndex = 12;
+            this.linkDatabase.TabStop = true;
+            this.linkDatabase.Text = "ChapterDb.org";
+            this.linkDatabase.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDatabase_LinkClicked);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(26, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 15);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Database updated!";
+            this.label1.Visible = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JarrettVance.ChapterTools.Properties.Resources.attn;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(21, 26);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // grpResults
             // 
@@ -510,61 +634,12 @@ namespace JarrettVance.ChapterTools
             this.flowResults.AutoScrollMinSize = new System.Drawing.Size(30, 30);
             this.flowResults.BackColor = System.Drawing.SystemColors.Window;
             this.flowResults.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowResults.Controls.Add(this.searchResultItem1);
-            this.flowResults.Controls.Add(this.searchResultItem2);
-            this.flowResults.Controls.Add(this.searchResultItem3);
             this.flowResults.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowResults.Location = new System.Drawing.Point(6, 16);
             this.flowResults.Name = "flowResults";
             this.flowResults.Size = new System.Drawing.Size(0, 42);
             this.flowResults.TabIndex = 14;
             this.flowResults.WrapContents = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.linkDatabase);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(9, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(311, 26);
-            this.panel1.TabIndex = 14;
-            this.panel1.Visible = false;
-            // 
-            // linkDatabase
-            // 
-            this.linkDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkDatabase.AutoSize = true;
-            this.linkDatabase.Location = new System.Drawing.Point(226, 6);
-            this.linkDatabase.Name = "linkDatabase";
-            this.linkDatabase.Size = new System.Drawing.Size(84, 13);
-            this.linkDatabase.TabIndex = 12;
-            this.linkDatabase.TabStop = true;
-            this.linkDatabase.Text = "ChapterDb.org";
-            this.linkDatabase.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDatabase_LinkClicked);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(26, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Database updated!";
-            this.label1.Visible = false;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::JarrettVance.ChapterTools.Properties.Resources.attn;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(21, 26);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             // 
             // panel3
             // 
@@ -585,83 +660,29 @@ namespace JarrettVance.ChapterTools
             this.panel3.Size = new System.Drawing.Size(484, 336);
             this.panel3.TabIndex = 13;
             // 
-            // lblTitle
+            // listChapters
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(39, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(29, 13);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Title";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listChapters.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listChapters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.Location = new System.Drawing.Point(72, 7);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(25, 22);
-            this.txtTitle.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.txtTitle, "Please enter the title of your movie.");
-            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
-            // 
-            // btnTitles
-            // 
-            this.btnTitles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTitles.ContextMenuStrip = this.menuTitles;
-            this.btnTitles.Image = global::JarrettVance.ChapterTools.Properties.Resources.apply_bad;
-            this.btnTitles.Location = new System.Drawing.Point(-285, 5);
-            this.btnTitles.Name = "btnTitles";
-            this.btnTitles.Size = new System.Drawing.Size(24, 24);
-            this.btnTitles.TabIndex = 8;
-            this.toolTipTitle.SetToolTip(this.btnTitles, "Choose a suggested title.");
-            this.btnTitles.UseVisualStyleBackColor = true;
-            this.btnTitles.Click += new System.EventHandler(this.btnTitles_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSearch.AutoSize = true;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(106, 5);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(68, 24);
-            this.btnSearch.TabIndex = 9;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // picDb
-            // 
-            this.picDb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picDb.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picDb.Location = new System.Drawing.Point(-64, 9);
-            this.picDb.Name = "picDb";
-            this.picDb.Size = new System.Drawing.Size(16, 16);
-            this.picDb.TabIndex = 8;
-            this.picDb.TabStop = false;
-            this.toolTip1.SetToolTip(this.picDb, "Database syncing...");
-            this.picDb.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.picDb);
-            this.panel2.Controls.Add(this.btnSearch);
-            this.panel2.Controls.Add(this.btnTitles);
-            this.panel2.Controls.Add(this.txtTitle);
-            this.panel2.Controls.Add(this.lblTitle);
-            this.panel2.Location = new System.Drawing.Point(354, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(35, 60);
-            this.panel2.TabIndex = 12;
-            this.panel2.Visible = false;
+            this.listChapters.FullRowSelect = true;
+            this.listChapters.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listChapters.HideSelection = false;
+            this.listChapters.LabelWrap = false;
+            this.listChapters.Location = new System.Drawing.Point(10, 8);
+            this.listChapters.MultiSelect = false;
+            this.listChapters.Name = "listChapters";
+            this.listChapters.Size = new System.Drawing.Size(464, 265);
+            this.listChapters.TabIndex = 10;
+            this.listChapters.UseCompatibleStateImageBehavior = false;
+            this.listChapters.View = System.Windows.Forms.View.Details;
+            this.listChapters.SelectedIndexChanged += new System.EventHandler(this.listChapters_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.Location = new System.Drawing.Point(10, 280);
+            this.label3.Location = new System.Drawing.Point(10, 281);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 16);
@@ -684,7 +705,7 @@ namespace JarrettVance.ChapterTools
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.Location = new System.Drawing.Point(10, 308);
+            this.label6.Location = new System.Drawing.Point(10, 309);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 16);
@@ -699,108 +720,52 @@ namespace JarrettVance.ChapterTools
             this.txtChapterName.Location = new System.Drawing.Point(53, 307);
             this.txtChapterName.MaxLength = 300;
             this.txtChapterName.Name = "txtChapterName";
+            this.txtChapterName.AutoSize = false;
             this.txtChapterName.Size = new System.Drawing.Size(421, 22);
             this.txtChapterName.TabIndex = 4;
             this.txtChapterName.Text = "Chapter 0";
             this.txtChapterName.TextChanged += new System.EventHandler(this.txtChapter_TextChanged);
             this.txtChapterName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChapterName_KeyDown);
             // 
-            // btnAdd
+            // lblTitle
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Image = global::JarrettVance.ChapterTools.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(425, 278);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(24, 24);
-            this.btnAdd.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.btnAdd, "Add chapter");
-            this.btnAdd.Click += new System.EventHandler(this.ChapterControls_Click);
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(39, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(29, 15);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Title";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnDelete
+            // btnSearch
             // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Image = global::JarrettVance.ChapterTools.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(451, 278);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(24, 24);
-            this.btnDelete.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.btnDelete, "Remove chapter");
-            this.btnDelete.Click += new System.EventHandler(this.ChapterControls_Click);
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSearch.AutoSize = true;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(106, 5);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(68, 25);
+            this.btnSearch.TabIndex = 9;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // btnUp
+            // panel2
             // 
-            this.btnUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUp.Image = global::JarrettVance.ChapterTools.Properties.Resources.arrow_up;
-            this.btnUp.Location = new System.Drawing.Point(371, 278);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(24, 24);
-            this.btnUp.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnUp, "Move name up");
-            this.btnUp.Click += new System.EventHandler(this.ChapterControls_Click);
-            // 
-            // btnDn
-            // 
-            this.btnDn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDn.Image = global::JarrettVance.ChapterTools.Properties.Resources.arrow_down;
-            this.btnDn.Location = new System.Drawing.Point(398, 278);
-            this.btnDn.Name = "btnDn";
-            this.btnDn.Size = new System.Drawing.Size(24, 24);
-            this.btnDn.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnDn, "Move name down");
-            this.btnDn.Click += new System.EventHandler(this.ChapterControls_Click);
-            // 
-            // listChapters
-            // 
-            this.listChapters.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listChapters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listChapters.FullRowSelect = true;
-            this.listChapters.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listChapters.HideSelection = false;
-            this.listChapters.LabelWrap = false;
-            this.listChapters.Location = new System.Drawing.Point(10, 9);
-            this.listChapters.MultiSelect = false;
-            this.listChapters.Name = "listChapters";
-            this.listChapters.Size = new System.Drawing.Size(464, 264);
-            this.listChapters.TabIndex = 10;
-            this.listChapters.UseCompatibleStateImageBehavior = false;
-            this.listChapters.View = System.Windows.Forms.View.Details;
-            this.listChapters.SelectedIndexChanged += new System.EventHandler(this.listChapters_SelectedIndexChanged);
-            // 
-            // searchResultItem1
-            // 
-            this.searchResultItem1.BackColor = System.Drawing.SystemColors.Window;
-            this.searchResultItem1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchResultItem1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchResultItem1.Location = new System.Drawing.Point(3, 3);
-            this.searchResultItem1.Name = "searchResultItem1";
-            this.searchResultItem1.Size = new System.Drawing.Size(285, 35);
-            this.searchResultItem1.TabIndex = 0;
-            // 
-            // searchResultItem2
-            // 
-            this.searchResultItem2.BackColor = System.Drawing.SystemColors.Window;
-            this.searchResultItem2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchResultItem2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchResultItem2.Location = new System.Drawing.Point(3, 44);
-            this.searchResultItem2.Name = "searchResultItem2";
-            this.searchResultItem2.Size = new System.Drawing.Size(285, 35);
-            this.searchResultItem2.TabIndex = 1;
-            // 
-            // searchResultItem3
-            // 
-            this.searchResultItem3.BackColor = System.Drawing.SystemColors.Window;
-            this.searchResultItem3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchResultItem3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchResultItem3.Location = new System.Drawing.Point(3, 85);
-            this.searchResultItem3.Name = "searchResultItem3";
-            this.searchResultItem3.Size = new System.Drawing.Size(285, 35);
-            this.searchResultItem3.TabIndex = 2;
+            this.panel2.Controls.Add(this.picDb);
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.btnTitles);
+            this.panel2.Controls.Add(this.txtTitle);
+            this.panel2.Controls.Add(this.lblTitle);
+            this.panel2.Location = new System.Drawing.Point(354, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(35, 60);
+            this.panel2.TabIndex = 12;
+            this.panel2.Visible = false;
             // 
             // MainForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(5, 15);
+            this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
             this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.statusStrip1);
@@ -808,27 +773,27 @@ namespace JarrettVance.ChapterTools
             this.Controls.Add(this.grpResults);
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu;
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "MainForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "ChapterGrabber";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.frmMain_Closing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDb)).EndInit();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
-            this.grpResults.ResumeLayout(false);
-            this.flowResults.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.grpResults.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDb)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
