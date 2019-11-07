@@ -70,7 +70,7 @@
             this.btnUpdate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnUpdate.Image = global::JarrettVance.ChapterTools.Properties.Resources.folder;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(378, 3);
+            this.btnUpdate.Location = new System.Drawing.Point(429, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(66, 40);
             this.btnUpdate.TabIndex = 4;
@@ -89,7 +89,7 @@
             this.Controls.Add(this.picDisc);
             this.Controls.Add(this.lblName);
             this.Name = "DiscItem";
-            this.Size = new System.Drawing.Size(447, 47);
+            this.Size = new System.Drawing.Size(498, 47);
             ((System.ComponentModel.ISupportInitialize)(this.picDisc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

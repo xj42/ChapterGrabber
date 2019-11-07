@@ -55,12 +55,11 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOK.AutoSize = true;
             this.btnOK.Image = global::JarrettVance.ChapterTools.Properties.Resources.accept;
-            this.btnOK.Location = new System.Drawing.Point(454, 0);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOK.Location = new System.Drawing.Point(531, 0);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 30);
+            this.btnOK.Size = new System.Drawing.Size(80, 30);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -72,11 +71,12 @@
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
+            this.listBox1.ItemHeight = 17;
             this.listBox1.Location = new System.Drawing.Point(10, 10);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(614, 274);
+            this.listBox1.Size = new System.Drawing.Size(614, 276);
             this.listBox1.TabIndex = 2;
             this.listBox1.DoubleClick += new System.EventHandler(this.btnOK_Click);
             // 
@@ -84,7 +84,7 @@
             // 
             this.lblCounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCounts.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblCounts.Location = new System.Drawing.Point(492, 292);
+            this.lblCounts.Location = new System.Drawing.Point(492, 297);
             this.lblCounts.Name = "lblCounts";
             this.lblCounts.Size = new System.Drawing.Size(130, 16);
             this.lblCounts.TabIndex = 9;
@@ -94,7 +94,7 @@
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.Location = new System.Drawing.Point(10, 292);
+            this.label1.Location = new System.Drawing.Point(10, 297);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 8;
@@ -108,7 +108,7 @@
             this.flowLayoutPanel1.Controls.Add(this.checkBoxLessThan20mins);
             this.flowLayoutPanel1.Controls.Add(this.checkBoxLessThan5);
             this.flowLayoutPanel1.Controls.Add(this.checkBoxGreaterThan50);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 288);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 293);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(439, 25);
             this.flowLayoutPanel1.TabIndex = 7;
@@ -158,10 +158,10 @@
             this.btnCancel.AutoSize = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::JarrettVance.ChapterTools.Properties.Resources.cancel;
-            this.btnCancel.Location = new System.Drawing.Point(533, 0);
+            this.btnCancel.Location = new System.Drawing.Point(447, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(78, 30);
+            this.btnCancel.Size = new System.Drawing.Size(80, 30);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -171,8 +171,8 @@
             // 
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel2.Controls.Add(this.btnCancel);
             this.flowLayoutPanel2.Controls.Add(this.btnOK);
+            this.flowLayoutPanel2.Controls.Add(this.btnCancel);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(14, 322);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -189,7 +189,7 @@
             this.grpResults.Controls.Add(this.flowResults);
             this.grpResults.Location = new System.Drawing.Point(896, 14);
             this.grpResults.Name = "grpResults";
-            this.grpResults.Size = new System.Drawing.Size(0, 13);
+            this.grpResults.Size = new System.Drawing.Size(0, 0);
             this.grpResults.TabIndex = 12;
             this.grpResults.TabStop = false;
             this.grpResults.Text = "Database";
@@ -273,7 +273,6 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(650, 400);
             this.Name = "StreamSelectDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
