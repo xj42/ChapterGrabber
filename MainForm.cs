@@ -138,27 +138,6 @@ namespace JarrettVance.ChapterTools
             */
         }
 
-        void ShowUpdateDialog(Version appVersion, Version newVersion, XDocument doc)
-        {
-            if (InvokeRequired)
-            {
-                Invoke(new Action<Version, Version, XDocument>(ShowUpdateDialog), appVersion, newVersion, doc);
-                return;
-            }
-
-            using (UpdateForm f = new UpdateForm())
-            {
-                f.Text = string.Format(f.Text, appVersion);
-                f.MoreInfoLink = (string)doc.Root.Element("info");
-                f.Info = string.Format(f.Info, newVersion, (DateTime)doc.Root.Element("date"));
-                if (f.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-                {
-                    Updater.LaunchUpdater(doc);
-                    this.Close();
-                }
-            }
-        }
-
         void LoadFpsMenus()
         {
             menuChangeFps.MenuItems.Clear();
@@ -224,6 +203,7 @@ namespace JarrettVance.ChapterTools
         private void menuFileSave_Click(object sender, System.EventArgs e)
         {
             UpdateDatabase(pgc);
+            string ext;
 
             saveFileDialog.Filter =
               "Chapters File (*.chapters)|*.chapters|" +
@@ -235,22 +215,32 @@ namespace JarrettVance.ChapterTools
               "Timecodes Text File (*.txt)|*.txt|" +
               "All Files (*.*)|*.*";
 
-            saveFileDialog.RestoreDirectory = true;
-            saveFileDialog.FileName = (pgc.Title == null ? pgc.SourceName : pgc.Title)
-              + Settings.Default.LastSaveExt;
+            if (Settings.Default.LastSaveFilterIndex < 1 || Settings.Default.LastSaveFilterIndex > 7)
+                Settings.Default.LastSaveFilterIndex = 0;
+            saveFileDialog.FilterIndex = Settings.Default.LastSaveFilterIndex;
 
             //Note: filter index is one based (dumb)
-            switch (Settings.Default.LastSaveExt)
+            switch (saveFileDialog.FilterIndex)
             {
-                case ".chapters": saveFileDialog.FilterIndex = 1; break;
-                case ".txt": saveFileDialog.FilterIndex = 2; break;
-                case ".xml": saveFileDialog.FilterIndex = 3; break;
-                default: saveFileDialog.FilterIndex = 8; break;
+                case 1: ext = ".chapters"; break;
+                case 3: ext = ".xml"; break;
+                case 2:
+                case 4:
+                case 5:
+                case 6:
+                case 7: ext = ".txt"; break;
+                default:
+                    ext = "";
+                    saveFileDialog.FilterIndex = 8; break;
             }
+
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = (pgc.Title == null ? pgc.SourceName : pgc.Title)
+              + ext;
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string ext = Path.GetExtension(saveFileDialog.FileName).ToLower();
+                ext = Path.GetExtension(saveFileDialog.FileName).ToLower();
                 if (ext == ".xml")
                     pgc.SaveXml(saveFileDialog.FileName);
                 else if (ext == ".txt")
@@ -265,6 +255,7 @@ namespace JarrettVance.ChapterTools
                 else
                     pgc.Save(saveFileDialog.FileName);
                 Settings.Default.LastSaveExt = ext;
+                Settings.Default.LastSaveFilterIndex = saveFileDialog.FilterIndex;
                 Settings.Default.Save();
             }
         }
@@ -278,8 +269,8 @@ namespace JarrettVance.ChapterTools
             ThreadPool.QueueUserWorkItem((w) =>
                 {
 
-                // look for direct hits on the names and auto-load them
-                if (Settings.Default.AutoUseDatabase && pgc.SourceHash != null)
+                    // look for direct hits on the names and auto-load them
+                    if (Settings.Default.AutoUseDatabase && pgc.SourceHash != null)
                     {
                         foreach (ChapterGrabber g in ChapterGrabber.Grabbers)
                             if (g.SupportsUpload) g.Upload(ci);
@@ -456,11 +447,11 @@ namespace JarrettVance.ChapterTools
             picDb.Visible = true;
             ThreadPool.QueueUserWorkItem((w) =>
                 {
-                // look for direct hit by hash and auto-load names if needed
-                if (Settings.Default.AutoUseDatabase && pgc.SourceHash != null)
+                    // look for direct hit by hash and auto-load names if needed
+                    if (Settings.Default.AutoUseDatabase && pgc.SourceHash != null)
                     {
-                    // only auto-populate if names are missing
-                    if (pgc.NamesNeedPopulated())
+                        // only auto-populate if names are missing
+                        if (pgc.NamesNeedPopulated())
                         {
                             foreach (ChapterGrabber g in ChapterGrabber.Grabbers)
                                 if (g.SupportsHash)
@@ -564,12 +555,7 @@ namespace JarrettVance.ChapterTools
                 listChapters.SelectedItems[0].SubItems[1].Text = txtChapterName.Text;
             }
             catch (Exception parse)
-            { /*/invalid time input
-				txtChapterTime.Focus();
-				txtChapterTime.SelectAll();
-				MessageBox.Show("Invalid time format! Must be in the form of \"00:00:00.000\""
-					+ Environment.NewLine + parse.Message);
-				return;*/
+            {
                 Trace.WriteLine(parse);
             }
         }
@@ -659,8 +645,8 @@ namespace JarrettVance.ChapterTools
                             {
                                 Cursor = Cursors.WaitCursor;
 
-                          // unselect others
-                          foreach (var x in items.Where(x => x != s))
+                                // unselect others
+                                foreach (var x in items.Where(x => x != s))
                                     x.Unselect();
 
                                 if (grabber == null) return;
@@ -681,11 +667,7 @@ namespace JarrettVance.ChapterTools
                             }
                         };
 
-              //lstResults.Items.Clear();
-              //lstResults.Items.AddRange(titles.ToArray());
-              //lstResults.ValueMember = "Id";
-              //lstResults.DisplayMember = "Name";
-              tsslStatus.Text = string.Format("Search returned {0} result(s).", titles.Count);
+                    tsslStatus.Text = string.Format("Search returned {0} result(s).", titles.Count);
                     picSearch.Visible = false;
                     Cursor = Cursors.Default;
                 };
@@ -725,34 +707,6 @@ namespace JarrettVance.ChapterTools
         {
             btnSearch.ContextMenu.Show(btnSearch, new Point(0, btnSearch.Height));
         }
-
-        //private void lstResults_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    var sel = flowResults.Controls.OfType<SearchResultItem>()
-        //        .Where(x => x.Selected);
-        //    if (!sel.Any()) return;
-
-        //  if (grabber == null) return;
-
-        //  var result = lstResults.Items[lstResults.SelectedIndex] as SearchResult;
-
-        //  try
-        //  {
-        //    Cursor = Cursors.WaitCursor;
-        //    grabber.PopulateNames(result, pgc, miImportDurations.Checked);
-        //    FreshChapterView();
-        //  }
-        //  catch (Exception ex)
-        //  {
-        //    Trace.WriteLine(ex);
-        //    MessageBox.Show(ex.Message);
-        //  }
-        //  finally
-        //  {
-        //    Cursor = Cursors.Default;
-        //  }
-        //  //Grabber.ImportFromSearchXml(pgc.Chapters, searchXml, result.Id);
-        //}
 
         private void menuResetNames_Click(object sender, EventArgs e)
         {
@@ -845,8 +799,8 @@ namespace JarrettVance.ChapterTools
                 ThreadPool.QueueUserWorkItem((w) =>
                     {
                         var titles = Grabber.SuggestTitles(pgc.Title);
-                  //txtTitle.Invoke(new Action<List<KeyValuePair<int, string>>>(this.UpdateTitles), titles);
-                  this.UpdateTitles(titles);
+                        //txtTitle.Invoke(new Action<List<KeyValuePair<int, string>>>(this.UpdateTitles), titles);
+                        this.UpdateTitles(titles);
                     });
             }
         }
@@ -905,36 +859,6 @@ namespace JarrettVance.ChapterTools
             toolTipTitle.SetToolTip(btnTitles, "Please enter a good movie title.");
         }
 
-        private void miUpdate_Click(object sender, EventArgs e)
-        {
-            UpdateStatus status = Updater.CheckForUpdate(ShowUpdateDialog);
-
-            if (status == UpdateStatus.UpdateFailed)
-                MessageBox.Show(this, "Failed to check for update.  Please ty again later.", "Warning");
-            else if (status == UpdateStatus.NoUpdate)
-                MessageBox.Show(this, "There are no updates available at this time.", "Update Check");
-        }
-
-        private void miAutoCheck_Click(object sender, EventArgs e)
-        {
-            miAutoCheck.Checked = !miAutoCheck.Checked;
-            Settings.Default.AutoCheckForUpdate = miAutoCheck.Checked;
-            Settings.Default.Save();
-        }
-
-        private void miAutoUseDb_Click(object sender, EventArgs e)
-        {
-            miAutoUseDb.Checked = !miAutoUseDb.Checked;
-            Settings.Default.AutoUseDatabase = miAutoUseDb.Checked;
-            Settings.Default.Save();
-        }
-
-        private void miDatabaseCredentials_Click(object sender, EventArgs e)
-        {
-            using (DatabaseCredentialsDialog d = new DatabaseCredentialsDialog())
-                d.ShowDialog(this);
-        }
-
         private void txtChapterName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -976,22 +900,6 @@ namespace JarrettVance.ChapterTools
                     OpenDisc(dlg.DiscPath);
                 }
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkDatabase_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-            // Change the color of the link text by setting LinkVisited 
-            // to true.
-            ((LinkLabel)sender).LinkVisited = true;
-            //Call the Process.Start method to open the default browser 
-            //with a URL:
-            System.Diagnostics.Process.Start("http://chapterdb.org");
         }
 
         private void miDelay_Click(object sender, EventArgs e)

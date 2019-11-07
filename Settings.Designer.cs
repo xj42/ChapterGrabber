@@ -81,7 +81,7 @@ namespace JarrettVance.ChapterTools {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("29.970029970029973")]
+        [global::System.Configuration.DefaultSettingValueAttribute("23.97602397602398")]
         public double DefaultFps {
             get {
                 return ((double)(this["DefaultFps"]));

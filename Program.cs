@@ -21,8 +21,6 @@ namespace JarrettVance.ChapterTools
             // register file association
             Register(".chapters", "application/xml+chapters", "Video Chapters", Application.ExecutablePath, Application.ExecutablePath, 0);
 
-            Updater.UpdateUpdater();
-
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             Application.EnableVisualStyles();
             var f = new MainForm();

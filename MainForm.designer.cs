@@ -37,69 +37,69 @@ using JarrettVance.ChapterTools.Extractors;
 using System.Collections.Specialized;
 namespace JarrettVance.ChapterTools
 {
-  /// <summary>
-  /// Summary description for frmMain.
-  /// </summary>
-  public partial class MainForm : System.Windows.Forms.Form
-  {
-    public System.Windows.Forms.MainMenu mainMenu;
-    private System.Windows.Forms.MenuItem menuFile;
-    private System.Windows.Forms.MenuItem menuEdit;
-    private System.Windows.Forms.MenuItem menuEditClipboardImport;
-    private System.Windows.Forms.MenuItem miSearch;
-    private System.Windows.Forms.OpenFileDialog openFileDialog;
-    private System.Windows.Forms.SaveFileDialog saveFileDialog;
-    private System.Windows.Forms.MenuItem menuFileSave;
-    private System.Windows.Forms.MenuItem menuItem1;
-    private System.Windows.Forms.MenuItem menuFileExit;
-    private System.Windows.Forms.MenuItem menuFileNew;
-    private System.Windows.Forms.MenuItem menuItem4;
-    private System.Windows.Forms.MenuItem miImportDurations;
-
-    private System.Windows.Forms.MenuItem menuHelp;
-    private System.Windows.Forms.MenuItem menuHelpAbout;
-    private SplitContainer splitContainer1;
-    private GroupBox grpResults;
-    private MenuItem menuResetNames;
-    private MenuItem menuItem2;
-    private MenuItem miOpenFile;
-    private MenuItem miOpenDisc;
-    private MenuItem miIgnoreShortLastChapter;
-    private MenuItem menuChangeFps;
-    private MenuItem menuRecentFiles;
-    private MenuItem menuItem13;
-    private IContainer components;
-
-    public MainForm()
-    {
-      //
-      // Required for Windows Form Designer support
-      //
-      InitializeComponent();
-    }
-
     /// <summary>
-    /// Clean up any resources being used.
+    /// Summary description for frmMain.
     /// </summary>
-    protected override void Dispose(bool disposing)
+    public partial class MainForm : System.Windows.Forms.Form
     {
-      if (disposing)
-      {
-        if (components != null)
+        public System.Windows.Forms.MainMenu mainMenu;
+        private System.Windows.Forms.MenuItem menuFile;
+        private System.Windows.Forms.MenuItem menuEdit;
+        private System.Windows.Forms.MenuItem menuEditClipboardImport;
+        private System.Windows.Forms.MenuItem miSearch;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.MenuItem menuFileSave;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem menuFileExit;
+        private System.Windows.Forms.MenuItem menuFileNew;
+        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.MenuItem miImportDurations;
+
+        private System.Windows.Forms.MenuItem menuHelp;
+        private System.Windows.Forms.MenuItem menuHelpAbout;
+        private SplitContainer splitContainer1;
+        private GroupBox grpResults;
+        private MenuItem menuResetNames;
+        private MenuItem menuItem2;
+        private MenuItem miOpenFile;
+        private MenuItem miOpenDisc;
+        private MenuItem miIgnoreShortLastChapter;
+        private MenuItem menuChangeFps;
+        private MenuItem menuRecentFiles;
+        private MenuItem menuItem13;
+        private IContainer components;
+
+        public MainForm()
         {
-          components.Dispose();
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
         }
-      }
-      base.Dispose(disposing);
-    }
 
-    #region Windows Form Designer generated code
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
@@ -337,7 +337,6 @@ namespace JarrettVance.ChapterTools
             this.miDatabaseCredentials.Index = 7;
             this.miDatabaseCredentials.Text = "Database Credentials";
             this.miDatabaseCredentials.Visible = false;
-            this.miDatabaseCredentials.Click += new System.EventHandler(this.miDatabaseCredentials_Click);
             // 
             // menuItem2
             // 
@@ -364,7 +363,6 @@ namespace JarrettVance.ChapterTools
             this.miAutoUseDb.Index = 11;
             this.miAutoUseDb.Text = "Sync Online Database";
             this.miAutoUseDb.Visible = false;
-            this.miAutoUseDb.Click += new System.EventHandler(this.miAutoUseDb_Click);
             // 
             // miWarnInvalidTitle
             // 
@@ -388,7 +386,6 @@ namespace JarrettVance.ChapterTools
             this.miAutoCheck.Index = 0;
             this.miAutoCheck.Text = "Check for Update on Startup";
             this.miAutoCheck.Visible = false;
-            this.miAutoCheck.Click += new System.EventHandler(this.miAutoCheck_Click);
             // 
             // miUpdate
             // 
@@ -396,7 +393,6 @@ namespace JarrettVance.ChapterTools
             this.miUpdate.Index = 1;
             this.miUpdate.Text = "Check for Update Now";
             this.miUpdate.Visible = false;
-            this.miUpdate.Click += new System.EventHandler(this.miUpdate_Click);
             // 
             // menuHelpAbout
             // 
@@ -470,8 +466,8 @@ namespace JarrettVance.ChapterTools
             // 
             // txtTitle
             // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTitle.Location = new System.Drawing.Point(72, 7);
             this.txtTitle.Name = "txtTitle";
@@ -555,8 +551,8 @@ namespace JarrettVance.ChapterTools
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(390, 12);
             this.splitContainer1.Name = "splitContainer1";
@@ -590,7 +586,6 @@ namespace JarrettVance.ChapterTools
             this.linkDatabase.TabIndex = 12;
             this.linkDatabase.TabStop = true;
             this.linkDatabase.Text = "ChapterDb.org";
-            this.linkDatabase.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDatabase_LinkClicked);
             // 
             // label1
             // 
@@ -603,7 +598,6 @@ namespace JarrettVance.ChapterTools
             this.label1.TabIndex = 11;
             this.label1.Text = "Database updated!";
             this.label1.Visible = false;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -617,8 +611,8 @@ namespace JarrettVance.ChapterTools
             // 
             // grpResults
             // 
-            this.grpResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpResults.Controls.Add(this.picSearch);
             this.grpResults.Controls.Add(this.flowResults);
@@ -632,8 +626,8 @@ namespace JarrettVance.ChapterTools
             // 
             // flowResults
             // 
-            this.flowResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowResults.AutoScroll = true;
             this.flowResults.AutoScrollMargin = new System.Drawing.Size(5, 10);
@@ -649,8 +643,8 @@ namespace JarrettVance.ChapterTools
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.listChapters);
             this.panel3.Controls.Add(this.btnDn);
@@ -669,8 +663,8 @@ namespace JarrettVance.ChapterTools
             // listChapters
             // 
             this.listChapters.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listChapters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listChapters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listChapters.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.listChapters.FullRowSelect = true;
@@ -699,7 +693,7 @@ namespace JarrettVance.ChapterTools
             // 
             // txtChapterTime
             // 
-            this.txtChapterTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtChapterTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtChapterTime.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtChapterTime.Location = new System.Drawing.Point(58, 254);
@@ -723,7 +717,7 @@ namespace JarrettVance.ChapterTools
             // 
             // txtChapterName
             // 
-            this.txtChapterName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtChapterName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtChapterName.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtChapterName.Location = new System.Drawing.Point(58, 284);
@@ -806,35 +800,32 @@ namespace JarrettVance.ChapterTools
             this.ResumeLayout(false);
             this.PerformLayout();
 
-    }
-    #endregion
+        }
+        #endregion
 
-    private MenuItem menuLang;
-    private ToolStripStatusLabel tsslStatus;
-    private ToolStripStatusLabel tsslDuration;
-    private StatusStrip statusStrip1;
-    private MenuItem menuCurrentFps;
-    private ToolStripDropDownButton tsslFps;
-    private ToolStripDropDownButton tsslLang;
-    private MenuItem miAutoCheck;
-    private MenuItem miAutoUseDb;
-    private MenuItem miDatabaseCredentials;
-    private ToolTip toolTip1;
-    private PictureBox picSearch;
-    private ToolTip toolTipTitle;
-    private ContextMenuStrip menuTitles;
-    private MenuItem miWarnInvalidTitle;
-    private MenuItem menuQuickSave;
-    private MenuItem menuQuickOpen;
-    private LinkLabel linkDatabase;
-    private Label label1;
-    private PictureBox pictureBox1;
-    private MenuItem miDelay;
-    private FlowLayoutPanel flowResults;
-    private Panel panel1;
-    private SearchResultItem searchResultItem1;
-    private SearchResultItem searchResultItem2;
-    private SearchResultItem searchResultItem3;
+        private MenuItem menuLang;
+        private ToolStripStatusLabel tsslStatus;
+        private ToolStripStatusLabel tsslDuration;
+        private StatusStrip statusStrip1;
+        private MenuItem menuCurrentFps;
+        private ToolStripDropDownButton tsslFps;
+        private ToolStripDropDownButton tsslLang;
+        private MenuItem miAutoCheck;
+        private MenuItem miAutoUseDb;
+        private MenuItem miDatabaseCredentials;
+        private ToolTip toolTip1;
+        private PictureBox picSearch;
+        private ToolTip toolTipTitle;
+        private ContextMenuStrip menuTitles;
+        private MenuItem miWarnInvalidTitle;
+        private MenuItem menuQuickSave;
+        private MenuItem menuQuickOpen;
+        private LinkLabel linkDatabase;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private MenuItem miDelay;
+        private FlowLayoutPanel flowResults;
+        private Panel panel1;
         private Panel panel3;
         private Label lblTitle;
         private TextBox txtTitle;
