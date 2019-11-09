@@ -144,7 +144,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FontHelper.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -177,7 +176,6 @@
     <Compile Include="QuickOpenDialog.Designer.cs">
       <DependentUpon>QuickOpenDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Grabbers\DatabaseGrabber.cs" />
     <Compile Include="ErrorItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,7 +186,6 @@
     <Content Include="Readme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Compile Include="ChapterGrabber.cs" />
     <Compile Include="Extractors\BDInfo\LanguageCodes.cs" />
     <Compile Include="Extractors\BDInfoExtractor.cs" />
     <Compile Include="Extractors\BDInfo\TSPlaylistFile.cs" />
@@ -233,7 +230,6 @@
     </Compile>
     <Compile Include="ChapterExtractor.cs" />
     <Compile Include="ChapterInfo.cs" />
-    <Compile Include="Grabbers\TagChimpGrabber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Pathing\BasePath.cs" />
     <Compile Include="Pathing\DirectoryPath.cs" />

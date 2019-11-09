@@ -67,14 +67,8 @@
     <Setting Name="AutoCheckForUpdate" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="RemoteManifest" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://jvance.com/files/ChapterGrabber.manifest</Value>
-    </Setting>
     <Setting Name="AutoUseDatabase" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="DatabaseSite" Roaming="true" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://chapterdb.org</Value>
     </Setting>
     <Setting Name="DatabaseApiKey" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

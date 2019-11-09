@@ -72,7 +72,6 @@ namespace JarrettVance.ChapterTools
             }
         }
 
-
         private void btnDir_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog d = new FolderBrowserDialog())

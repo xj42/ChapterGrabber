@@ -33,7 +33,6 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using BDInfo;
 using JarrettVance.ChapterTools.Extractors;
-using JarrettVance.ChapterTools.Grabbers;
 using JarrettVance.ChapterTools.Properties;
 using NDepend.Helpers.FileDirectoryPath;
 
@@ -49,33 +48,13 @@ namespace JarrettVance.ChapterTools
         private ChapterInfo pgc;
         private int intIndex;
 
-
         private void frmMain_Load(object sender, System.EventArgs e)
         {
-            FontHelper.RegisterFont(Resources.fontawesome_webfont);
             //this.Height = Math.Min(560, Screen.GetWorkingArea(this).Height - 30);
             this.MinimumSize = new Size(500, 400);
             this.listChapters.Columns.Add("Time", 80, HorizontalAlignment.Left);
             this.listChapters.Columns.Add("Name", 360, HorizontalAlignment.Left);
             //this.listChapters.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-
-            //try
-            //{
-            //  //when using new version, upgrade settings
-            //  var nfi = new NumberFormatInfo();
-            //  object lastConfigVersion = Settings.Default.GetPreviousVersion("ConfigVersion");
-            //  if (lastConfigVersion != null && Convert.ToDouble(lastConfigVersion.ToString(), nfi) <
-            //    Convert.ToDouble(Settings.Default.ConfigVersion, nfi))
-            //  {
-            //    Trace.WriteLine("Upgrading settings from previous version.");
-            //    Settings.Default.Upgrade();
-            //    //Settings.Default.Save();
-            //  }
-            //}
-            //catch (Exception ex)
-            //{
-            //  Trace.WriteLine(ex);
-            //}
 
             if (Settings.Default.RecentFiles == null)
                 Settings.Default.RecentFiles = new StringCollection();
@@ -106,23 +85,7 @@ namespace JarrettVance.ChapterTools
             RefreshRecent();
             OnNew();
 
-            //#if RELEASE
-            /*
-            if (Settings.Default.AutoUseDatabase && 
-                (Settings.Default.DatabaseApiKey == "a784c7d08e5fe192ca247d1a2dd5c27f" || string.IsNullOrEmpty(Settings.Default.DatabaseApiKey)))
-            {
-                MessageBox.Show(this, "Please enter your API key to access the database.");
-                miDatabaseCredentials_Click(null, null);
-            }
-            */
-            //#endif
-
             if (!string.IsNullOrEmpty(StartupFile)) OpenFile(StartupFile);
-
-            /*
-            if (Settings.Default.AutoCheckForUpdate)
-                ThreadPool.QueueUserWorkItem((w) => Updater.CheckForUpdate(ShowUpdateDialog));
-            */
         }
 
         void LoadFpsMenus()
@@ -452,7 +415,6 @@ namespace JarrettVance.ChapterTools
             finally { this.Cursor = Cursors.Default; }
         }
 
-
         private void menuEditTimesImport_Click(object sender, System.EventArgs e)
         {
             miImportDurations.Checked = !miImportDurations.Checked;
@@ -507,15 +469,14 @@ namespace JarrettVance.ChapterTools
                 case "btnAdd":
                     TimeSpan ts = new TimeSpan(0);
                     try
-                    {//try to get a valid time input					
+                    { //try to get a valid time input					
                         ts = TimeSpan.Parse(txtChapterTime.Text);
                     }
                     catch (Exception parse)
                     { //invalid time input
                         txtChapterTime.Focus();
                         txtChapterTime.SelectAll();
-                        MessageBox.Show("Invalid time format! Must be in the form of \"00:00:00.000\""
-                          + Environment.NewLine + parse.Message);
+                        MessageBox.Show("Invalid time format! Must be in the form of \"00:00:00.000\"" + Environment.NewLine + parse.Message);
                         return;
                     }
                     //create a new chapter
@@ -556,14 +517,6 @@ namespace JarrettVance.ChapterTools
             {
                 frm.ShowDialog();
             }
-        }
-
-        private void SearchError(Exception ex)
-        {
-            Trace.WriteLine(ex);
-            MessageBox.Show(ex.Message, "Error");
-            tsslStatus.Text = "Failed to search for chapter names.";
-            Cursor = Cursors.Default;
         }
 
         private void menuResetNames_Click(object sender, EventArgs e)
@@ -644,60 +597,6 @@ namespace JarrettVance.ChapterTools
             miIgnoreShortLastChapter.Checked = !miIgnoreShortLastChapter.Checked;
             FreshChapterView();
             Settings.Default.IgnoreShortLastChapter = miIgnoreShortLastChapter.Checked;
-        }
-
-        private void txtTitle_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(pgc.Title))
-            {
-                ThreadPool.QueueUserWorkItem((w) =>
-                    {
-                        var titles = Grabber.SuggestTitles(pgc.Title);
-                        //txtTitle.Invoke(new Action<List<KeyValuePair<int, string>>>(this.UpdateTitles), titles);
-                        this.UpdateTitles(titles);
-                    });
-            }
-        }
-
-        private void UpdateTitles(List<KeyValuePair<int, string>> titles)
-        {
-            if (this.InvokeRequired)
-            {
-                Invoke(new Action<List<KeyValuePair<int, string>>>(this.UpdateTitles), titles);
-                return;
-            }
-
-            menuTitles.Items.Clear();
-
-            foreach (var t in titles)
-            {
-                menuTitles.Items.Add(t.Value.Replace("&", "&&"), t.Key > 0 ? Properties.Resources.star : null, (o, s) =>
-                    {
-                        pgc.Title = ((ToolStripItem)o).Text.Replace("&&", "&");
-                    });
-            }
-            int num = -1;
-            if (titles.Count > 0 && titles[0].Value == pgc.Title) SetGoodTitle();
-            else if (int.TryParse(pgc.Title, out num)) SetBadTitle();
-            else if (pgc.Title.StartsWith("VTS_")) SetBadTitle();
-            else if (pgc.Title == "Main Movie") SetBadTitle();
-            else if (titles.Where(t => t.Value.Contains(pgc.Title)).Count() > 0) SetOkTitle();
-            else SetBadTitle();
-        }
-
-        private void SetGoodTitle()
-        {
-            toolTipTitle.ToolTipTitle = "Good Title";
-        }
-
-        private void SetOkTitle()
-        {
-            toolTipTitle.ToolTipTitle = "OK Title";
-        }
-
-        private void SetBadTitle()
-        {
-            toolTipTitle.ToolTipTitle = "Bad Title";
         }
 
         private void txtChapterName_KeyDown(object sender, KeyEventArgs e)

@@ -198,18 +198,6 @@ namespace JarrettVance.ChapterTools {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://jvance.com/files/ChapterGrabber.manifest")]
-        public string RemoteManifest {
-            get {
-                return ((string)(this["RemoteManifest"]));
-            }
-            set {
-                this["RemoteManifest"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public bool AutoUseDatabase {
@@ -218,19 +206,6 @@ namespace JarrettVance.ChapterTools {
             }
             set {
                 this["AutoUseDatabase"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://chapterdb.org")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public string DatabaseSite {
-            get {
-                return ((string)(this["DatabaseSite"]));
-            }
-            set {
-                this["DatabaseSite"] = value;
             }
         }
         

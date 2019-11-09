@@ -42,56 +42,6 @@ namespace JarrettVance.ChapterTools
             return charCount > this.Chapters.Count * 2;
         }
 
-        public bool NamesNeedPopulated()
-        {
-            if (Chapters.Count == 0) return false;
-            string name = Chapters[0].Name;
-            // assume either blank or "Chapter 1"
-            return name.ToLowerInvariant()
-                .Replace("chapter", "")
-                .Replace("kapitel", "")
-                .Replace("capítulo", "")
-                .Replace("capitulo", "")
-                .Replace("chapitre", "")
-                .Replace("глава", "")
-                .Replace("章", "")
-                .Replace("kapitola", "")
-                .Replace("hoofdstuk", "")
-                .Trim().Length < 3;
-        }
-
-        public float Similarity(ChapterInfo other)
-        {
-            float count = 0F;
-            float matches = 0F;
-
-            count++;
-            if (Title != null && Title.Equals(other.Title, StringComparison.InvariantCultureIgnoreCase)) matches++;
-
-            count++;
-            if (SourceHash != null && SourceHash.Equals(other.SourceHash)) matches++;
-
-            count++;
-            if (LangCode != null && LangCode.Equals(other.LangCode)) matches++;
-
-            count++;
-            if (Math.Abs(Duration.TotalSeconds - other.Duration.TotalSeconds) < 1) matches++;
-
-            count++;
-            if (Math.Round(FramesPerSecond * 1000) - Math.Round(other.FramesPerSecond * 1000) == 0) matches++;
-
-            for (int i = 0; i < Chapters.Count; i++)
-            {
-                count = count + 2F;
-                if (i < other.Chapters.Count)
-                {
-                    if (Chapters[i].Name != null && Chapters[i].Name.Equals(other.Chapters[i].Name, StringComparison.InvariantCultureIgnoreCase)) matches++;
-                    if (Math.Abs(Chapters[i].Time.TotalSeconds - other.Chapters[i].Time.TotalSeconds) < 1) matches++;
-                }
-            }
-            return matches / count;
-        }
-
         public override string ToString()
         {
             return string.Format("{0}, {1}, {2} chapter(s)", SourceName, Duration.ToShortString(), Chapters.Count);
@@ -167,18 +117,11 @@ namespace JarrettVance.ChapterTools
 
         public static readonly XNamespace CgNs = "http://jvance.com/2008/ChapterGrabber";
 
-        public static ChapterInfo Load(XmlReader r)
-        {
-            XDocument doc = XDocument.Load(r);
-            return ChapterInfo.Load(doc.Root);
-        }
-
         public static ChapterInfo Load(string filename)
         {
             XDocument doc = XDocument.Load(filename);
             return ChapterInfo.Load(doc.Root);
         }
-
 
         public static ChapterInfo Load(XElement root)
         {
@@ -222,11 +165,6 @@ namespace JarrettVance.ChapterTools
         public void Save(string filename)
         {
             ToXElement().Save(filename);
-        }
-
-        public void Save(XmlWriter x)
-        {
-            ToXElement().Save(x);
         }
 
         public XElement ToXElement()
