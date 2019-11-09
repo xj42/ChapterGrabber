@@ -146,6 +146,11 @@
   <ItemGroup>
     <Compile Include="FontHelper.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SearchResultItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,11 +251,6 @@
     <Compile Include="Pathing\InternalStringHelper.cs" />
     <Compile Include="Pathing\ListOfPathHelper.cs" />
     <Compile Include="Pathing\PathHelper.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -260,6 +260,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\deny.png" />
+    <None Include="Resources\star.png" />
+    <None Include="Resources\attn.png" />
+    <None Include="Resources\folder.png" />
     <EmbeddedResource Include="SearchResultItem.resx">
       <DependentUpon>SearchResultItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,26 +274,14 @@
       <DependentUpon>ErrorItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Resources\fontawesome-webfont.ttf" />
-    <None Include="Resources\star.png" />
     <None Include="Resources\arrow_up.png" />
     <None Include="Resources\arrow_down.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\delete.png" />
-    <None Include="Resources\tag_green.png" />
-    <None Include="Resources\database_key.png" />
-    <None Include="Resources\disc.png" />
-    <None Include="Resources\download.png" />
     <None Include="Resources\CD.png" />
-    <None Include="Resources\world.png" />
-    <None Include="Resources\folder.png" />
-    <None Include="Resources\disk.png" />
-    <None Include="Resources\accept.png" />
-    <None Include="Resources\cancel.png" />
     <None Include="Resources\Bluray.png" />
     <None Include="Resources\DVD.png" />
     <None Include="Resources\HDDVD.png" />
-    <None Include="Resources\50 %283%29.png" />
-    <None Include="Resources\attn.png" />
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +302,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

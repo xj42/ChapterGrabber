@@ -46,10 +46,8 @@ namespace JarrettVance.ChapterTools
     {
         public string StartupFile { get; set; }
 
-        private ChapterGrabber grabber = null;
         private ChapterInfo pgc;
         private int intIndex;
-        private volatile bool dbWait, titleWait = false;
 
 
         private void frmMain_Load(object sender, System.EventArgs e)
@@ -86,15 +84,6 @@ namespace JarrettVance.ChapterTools
             miImportDurations.Checked = Settings.Default.ImportDurations;
             miAutoCheck.Checked = false;
             miAutoUseDb.Checked = false;
-
-            ContextMenu m = new ContextMenu();
-            m.MenuItems.Add(new MenuItem("TagChimp by Title",
-              (s, args) => { grabber = new TagChimpGrabber(); Search(); }));
-            //m.MenuItems.Add(new MenuItem("MetaService",
-            //  (s, args) => {grabber = new MetaServiceGrabber(); Search();}));
-            m.MenuItems.Add(new MenuItem("ChapterDB by Title",
-              (s, args) => { grabber = new DatabaseGrabber(); Search(); }));
-            btnSearch.ContextMenu = m;
 
             LoadFpsMenus();
             LoadLangMenu();
@@ -202,7 +191,6 @@ namespace JarrettVance.ChapterTools
 
         private void menuFileSave_Click(object sender, System.EventArgs e)
         {
-            UpdateDatabase(pgc);
             string ext;
 
             saveFileDialog.Filter =
@@ -260,26 +248,6 @@ namespace JarrettVance.ChapterTools
             }
         }
 
-        private void UpdateDatabase(ChapterInfo pgc)
-        {
-            picDb.Visible = true;
-            dbWait = true;
-            //duplicate
-            ChapterInfo ci = ChapterInfo.Load(pgc.ToXElement());
-            ThreadPool.QueueUserWorkItem((w) =>
-                {
-
-                    // look for direct hits on the names and auto-load them
-                    if (Settings.Default.AutoUseDatabase && pgc.SourceHash != null)
-                    {
-                        foreach (ChapterGrabber g in ChapterGrabber.Grabbers)
-                            if (g.SupportsUpload) g.Upload(ci);
-                    }
-                    dbWait = false;
-                    Invoke(new Action(() => picDb.Visible = titleWait || dbWait));
-                });
-        }
-
         private void menuFileExit_Click(object sender, System.EventArgs e)
         {
             this.Close();
@@ -297,8 +265,6 @@ namespace JarrettVance.ChapterTools
 
         void OnNew()
         {
-            txtTitle.Text = String.Empty;
-            flowResults.Controls.Clear();
             menuTitles.Items.Clear();
             intIndex = 0;
             pgc = new ChapterInfo()
@@ -423,7 +389,6 @@ namespace JarrettVance.ChapterTools
                 pgc = temp[0];
                 if (pgc.FramesPerSecond == 0) pgc.FramesPerSecond = Settings.Default.DefaultFps;
                 if (pgc.LangCode == null) pgc.LangCode = Settings.Default.DefaultLangCode;
-                AutoLoadNames();
 
                 FreshChapterView();
 
@@ -441,31 +406,6 @@ namespace JarrettVance.ChapterTools
             }
         }
 
-        private void AutoLoadNames()
-        {
-            dbWait = false;
-            picDb.Visible = true;
-            ThreadPool.QueueUserWorkItem((w) =>
-                {
-                    // look for direct hit by hash and auto-load names if needed
-                    if (Settings.Default.AutoUseDatabase && pgc.SourceHash != null)
-                    {
-                        // only auto-populate if names are missing
-                        if (pgc.NamesNeedPopulated())
-                        {
-                            foreach (ChapterGrabber g in ChapterGrabber.Grabbers)
-                                if (g.SupportsHash)
-                                {
-                                    g.PopulateNames(pgc.SourceHash, pgc);
-                                    FreshChapterView();
-                                }
-                        }
-                    }
-                    dbWait = false;
-                    Invoke(new Action(() => picDb.Visible = titleWait || dbWait));
-                });
-        }
-
         private void FreshChapterView()
         {
             if (InvokeRequired)
@@ -478,7 +418,6 @@ namespace JarrettVance.ChapterTools
             try
             {
                 listChapters.Items.Clear();
-                txtTitle.Text = pgc.Title;
                 //fill list
                 foreach (ChapterEntry c in pgc.Chapters)
                 {
@@ -621,91 +560,12 @@ namespace JarrettVance.ChapterTools
             }
         }
 
-        void Search()
-        {
-            Cursor = Cursors.WaitCursor;
-            tsslStatus.Text = "Searching for chapter names...";
-            picSearch.Visible = true;
-            try
-            {
-                if (string.IsNullOrEmpty(txtTitle.Text))
-                    throw new Exception("You must supply a title to search for chapter names.");
-
-                Action<List<SearchResult>> a = (titles) =>
-                {
-                    flowResults.Controls.Clear();
-                    flowResults.Controls.AddRange(
-                        titles.Select(x => new SearchResultItem(x)).ToArray());
-                    var items = flowResults.Controls.OfType<SearchResultItem>();
-                    foreach (var item in items)
-                        item.OnSelected += (s, e) =>
-                        {
-
-                            try
-                            {
-                                Cursor = Cursors.WaitCursor;
-
-                                // unselect others
-                                foreach (var x in items.Where(x => x != s))
-                                    x.Unselect();
-
-                                if (grabber == null) return;
-
-                                var result = (s as SearchResultItem).Tag as SearchResult;
-
-                                grabber.PopulateNames(result, pgc, miImportDurations.Checked);
-                                FreshChapterView();
-                            }
-                            catch (Exception ex)
-                            {
-                                Trace.WriteLine(ex);
-                                MessageBox.Show(ex.Message);
-                            }
-                            finally
-                            {
-                                Cursor = Cursors.Default;
-                            }
-                        };
-
-                    tsslStatus.Text = string.Format("Search returned {0} result(s).", titles.Count);
-                    picSearch.Visible = false;
-                    Cursor = Cursors.Default;
-                };
-                ThreadPool.QueueUserWorkItem((w) =>
-                    {
-                        try
-                        {
-                            var titles = grabber.Search(pgc);
-                            Invoke(a, titles);
-                        }
-                        catch (Exception ex)
-                        {
-                            Invoke(new Action<Exception>(SearchError), ex);
-                        }
-                    });
-            }
-            catch (Exception ex)
-            {
-                Trace.WriteLine(ex);
-                MessageBox.Show(ex.Message, "Error");
-                tsslStatus.Text = "Failed to search for chapter names.";
-                picSearch.Visible = false;
-                Cursor = Cursors.Default;
-            }
-        }
-
         private void SearchError(Exception ex)
         {
             Trace.WriteLine(ex);
             MessageBox.Show(ex.Message, "Error");
             tsslStatus.Text = "Failed to search for chapter names.";
-            picSearch.Visible = false;
             Cursor = Cursors.Default;
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            btnSearch.ContextMenu.Show(btnSearch, new Point(0, btnSearch.Height));
         }
 
         private void menuResetNames_Click(object sender, EventArgs e)
@@ -765,7 +625,6 @@ namespace JarrettVance.ChapterTools
                         pgc = frm.ProgramChain;
                         if (pgc.FramesPerSecond == 0) pgc.FramesPerSecond = Settings.Default.DefaultFps;
                         if (pgc.LangCode == null) pgc.LangCode = Settings.Default.DefaultLangCode;
-                        AutoLoadNames();
                         FreshChapterView();
                     }
                 }
@@ -791,11 +650,8 @@ namespace JarrettVance.ChapterTools
 
         private void txtTitle_TextChanged(object sender, EventArgs e)
         {
-            pgc.Title = txtTitle.Text.Trim();
             if (!string.IsNullOrEmpty(pgc.Title))
             {
-                picDb.Visible = true;
-                titleWait = true;
                 ThreadPool.QueueUserWorkItem((w) =>
                     {
                         var titles = Grabber.SuggestTitles(pgc.Title);
@@ -820,10 +676,6 @@ namespace JarrettVance.ChapterTools
                 menuTitles.Items.Add(t.Value.Replace("&", "&&"), t.Key > 0 ? Properties.Resources.star : null, (o, s) =>
                     {
                         pgc.Title = ((ToolStripItem)o).Text.Replace("&&", "&");
-                        txtTitle.TextChanged -= new EventHandler(txtTitle_TextChanged);
-                        txtTitle.Text = pgc.Title;
-                        txtTitle.TextChanged += new EventHandler(txtTitle_TextChanged);
-                        if (((ToolStripItem)o).Image != null) btnTitles.Image = Properties.Resources.apply_good;
                     });
             }
             int num = -1;
@@ -833,30 +685,21 @@ namespace JarrettVance.ChapterTools
             else if (pgc.Title == "Main Movie") SetBadTitle();
             else if (titles.Where(t => t.Value.Contains(pgc.Title)).Count() > 0) SetOkTitle();
             else SetBadTitle();
-
-            titleWait = false;
-            picDb.Visible = titleWait || dbWait;
         }
 
         private void SetGoodTitle()
         {
-            btnTitles.Image = Properties.Resources.apply_good;
             toolTipTitle.ToolTipTitle = "Good Title";
-            toolTipTitle.SetToolTip(btnTitles, "You've entered a good title.");
         }
 
         private void SetOkTitle()
         {
-            btnTitles.Image = Properties.Resources.apply_ok;
             toolTipTitle.ToolTipTitle = "OK Title";
-            toolTipTitle.SetToolTip(btnTitles, "Click to choose a better title.");
         }
 
         private void SetBadTitle()
         {
-            btnTitles.Image = Properties.Resources.apply_bad;
             toolTipTitle.ToolTipTitle = "Bad Title";
-            toolTipTitle.SetToolTip(btnTitles, "Please enter a good movie title.");
         }
 
         private void txtChapterName_KeyDown(object sender, KeyEventArgs e)
@@ -877,14 +720,8 @@ namespace JarrettVance.ChapterTools
             }
         }
 
-        private void btnTitles_Click(object sender, EventArgs e)
-        {
-            btnTitles.ContextMenuStrip.Show(btnTitles, new Point(0, btnTitles.Height));
-        }
-
         private void menuQuickSave_Click(object sender, EventArgs e)
         {
-            UpdateDatabase(pgc);
             using (var d = new QuickSaveDialog(pgc))
             {
                 d.ShowDialog(this);

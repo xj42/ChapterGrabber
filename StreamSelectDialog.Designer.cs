@@ -28,7 +28,6 @@
     /// </summary>
     private void InitializeComponent()
     {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StreamSelectDialog));
             this.btnOK = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.lblCounts = new System.Windows.Forms.Label();
@@ -39,23 +38,13 @@
             this.checkBoxGreaterThan50 = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.grpResults = new System.Windows.Forms.GroupBox();
-            this.picSearch = new System.Windows.Forms.PictureBox();
-            this.flowResults = new System.Windows.Forms.FlowLayoutPanel();
-            this.searchResultItem1 = new JarrettVance.ChapterTools.SearchResultItem();
-            this.searchResultItem2 = new JarrettVance.ChapterTools.SearchResultItem();
-            this.searchResultItem3 = new JarrettVance.ChapterTools.SearchResultItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.grpResults.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
-            this.flowResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOK.Image = global::JarrettVance.ChapterTools.Properties.Resources.accept;
             this.btnOK.Location = new System.Drawing.Point(531, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnOK.Name = "btnOK";
@@ -157,7 +146,6 @@
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.AutoSize = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::JarrettVance.ChapterTools.Properties.Resources.cancel;
             this.btnCancel.Location = new System.Drawing.Point(447, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnCancel.Name = "btnCancel";
@@ -180,82 +168,6 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(611, 30);
             this.flowLayoutPanel2.TabIndex = 11;
             // 
-            // grpResults
-            // 
-            this.grpResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpResults.Controls.Add(this.picSearch);
-            this.grpResults.Controls.Add(this.flowResults);
-            this.grpResults.Location = new System.Drawing.Point(896, 14);
-            this.grpResults.Name = "grpResults";
-            this.grpResults.Size = new System.Drawing.Size(0, 0);
-            this.grpResults.TabIndex = 12;
-            this.grpResults.TabStop = false;
-            this.grpResults.Text = "Database";
-            this.grpResults.Visible = false;
-            // 
-            // picSearch
-            // 
-            this.picSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picSearch.Image = ((System.Drawing.Image)(resources.GetObject("picSearch.Image")));
-            this.picSearch.Location = new System.Drawing.Point(-24, 1);
-            this.picSearch.Name = "picSearch";
-            this.picSearch.Size = new System.Drawing.Size(19, 13);
-            this.picSearch.TabIndex = 10;
-            this.picSearch.TabStop = false;
-            this.picSearch.Visible = false;
-            // 
-            // flowResults
-            // 
-            this.flowResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowResults.AutoScroll = true;
-            this.flowResults.AutoScrollMargin = new System.Drawing.Size(5, 10);
-            this.flowResults.AutoScrollMinSize = new System.Drawing.Size(30, 30);
-            this.flowResults.BackColor = System.Drawing.SystemColors.Window;
-            this.flowResults.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowResults.Controls.Add(this.searchResultItem1);
-            this.flowResults.Controls.Add(this.searchResultItem2);
-            this.flowResults.Controls.Add(this.searchResultItem3);
-            this.flowResults.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowResults.Location = new System.Drawing.Point(7, 18);
-            this.flowResults.Name = "flowResults";
-            this.flowResults.Size = new System.Drawing.Size(0, 0);
-            this.flowResults.TabIndex = 14;
-            this.flowResults.WrapContents = false;
-            // 
-            // searchResultItem1
-            // 
-            this.searchResultItem1.BackColor = System.Drawing.SystemColors.Window;
-            this.searchResultItem1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchResultItem1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchResultItem1.Location = new System.Drawing.Point(3, 3);
-            this.searchResultItem1.Name = "searchResultItem1";
-            this.searchResultItem1.Size = new System.Drawing.Size(332, 40);
-            this.searchResultItem1.TabIndex = 0;
-            // 
-            // searchResultItem2
-            // 
-            this.searchResultItem2.BackColor = System.Drawing.SystemColors.Window;
-            this.searchResultItem2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchResultItem2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchResultItem2.Location = new System.Drawing.Point(3, 49);
-            this.searchResultItem2.Name = "searchResultItem2";
-            this.searchResultItem2.Size = new System.Drawing.Size(332, 40);
-            this.searchResultItem2.TabIndex = 1;
-            // 
-            // searchResultItem3
-            // 
-            this.searchResultItem3.BackColor = System.Drawing.SystemColors.Window;
-            this.searchResultItem3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchResultItem3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchResultItem3.Location = new System.Drawing.Point(3, 95);
-            this.searchResultItem3.Name = "searchResultItem3";
-            this.searchResultItem3.Size = new System.Drawing.Size(332, 40);
-            this.searchResultItem3.TabIndex = 2;
-            // 
             // StreamSelectDialog
             // 
             this.AcceptButton = this.btnOK;
@@ -264,7 +176,6 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(634, 361);
             this.ControlBox = false;
-            this.Controls.Add(this.grpResults);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.lblCounts);
             this.Controls.Add(this.label1);
@@ -283,9 +194,6 @@
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            this.grpResults.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
-            this.flowResults.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
@@ -302,11 +210,5 @@
     private System.Windows.Forms.CheckBox checkBoxGreaterThan50;
     private System.Windows.Forms.Button btnCancel;
     private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-    private System.Windows.Forms.GroupBox grpResults;
-    private System.Windows.Forms.PictureBox picSearch;
-    private System.Windows.Forms.FlowLayoutPanel flowResults;
-    private SearchResultItem searchResultItem1;
-    private SearchResultItem searchResultItem2;
-    private SearchResultItem searchResultItem3;
   }
 }

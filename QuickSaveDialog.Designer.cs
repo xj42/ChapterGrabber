@@ -75,7 +75,6 @@
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOK.Image = global::JarrettVance.ChapterTools.Properties.Resources.accept;
             this.btnOK.Location = new System.Drawing.Point(531, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(0);
             this.btnOK.Name = "btnOK";
@@ -119,6 +118,7 @@
             this.Text = "Quick Save";
             this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 

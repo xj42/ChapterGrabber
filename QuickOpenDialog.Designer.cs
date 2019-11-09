@@ -54,7 +54,6 @@
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.AutoSize = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOK.Image = global::JarrettVance.ChapterTools.Properties.Resources.cancel;
             this.btnOK.Location = new System.Drawing.Point(531, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(0);
             this.btnOK.Name = "btnOK";

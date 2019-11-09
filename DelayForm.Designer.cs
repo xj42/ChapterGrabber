@@ -70,7 +70,6 @@
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.AutoSize = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::JarrettVance.ChapterTools.Properties.Resources.cancel;
             this.btnCancel.Location = new System.Drawing.Point(9, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCancel.Name = "btnCancel";
@@ -84,7 +83,6 @@
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.AutoSize = true;
-            this.btnOK.Image = global::JarrettVance.ChapterTools.Properties.Resources.accept;
             this.btnOK.Location = new System.Drawing.Point(95, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.btnOK.Name = "btnOK";

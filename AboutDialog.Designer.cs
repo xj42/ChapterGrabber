@@ -84,7 +84,6 @@
             // 
             // okButton
             // 
-            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.okButton.Location = new System.Drawing.Point(245, 212);
             this.okButton.Name = "okButton";
@@ -97,16 +96,16 @@
             this.flowLayoutPanel1.Controls.Add(this.labelProductName);
             this.flowLayoutPanel1.Controls.Add(this.labelVersion);
             this.flowLayoutPanel1.Controls.Add(this.labelCopyright);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(95, 20);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(88, 18);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(224, 59);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(224, 56);
             this.flowLayoutPanel1.TabIndex = 26;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(20, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 64);
             this.pictureBox1.TabIndex = 27;
@@ -116,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 248);
+            this.ClientSize = new System.Drawing.Size(334, 251);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.textBoxDescription);
