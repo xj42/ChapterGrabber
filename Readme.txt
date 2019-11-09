@@ -1,5 +1,13 @@
 ChapterGrabber
 
+r4dius fork :
+--------------------
+2019-09-11 : v5.5
+- Added 4k bluray compatibility
+- Removed all chapter web grabbing as all the used sites are dead now
+- Fixed remembering last saved format
+- Changed cosmetics a bit and added new icon
+
 What is it?
 --------------------
 ChapterGrabber is made to extract chapter times from DVD and
