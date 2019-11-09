@@ -53,8 +53,8 @@ namespace JarrettVance.ChapterTools
             //this.Height = Math.Min(560, Screen.GetWorkingArea(this).Height - 30);
             this.MinimumSize = new Size(500, 400);
             this.listChapters.Columns.Add("Time", 80, HorizontalAlignment.Left);
-            this.listChapters.Columns.Add("Name", 360, HorizontalAlignment.Left);
-            //this.listChapters.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            this.listChapters.Columns.Add("Name", 362, HorizontalAlignment.Left);
+            //this.listChapters.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             if (Settings.Default.RecentFiles == null)
                 Settings.Default.RecentFiles = new StringCollection();
@@ -654,6 +654,12 @@ namespace JarrettVance.ChapterTools
                     this.FreshChapterView();
                 }
             }
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if(this.listChapters.Columns.Count > 1)
+                this.listChapters.Columns[1].Width = this.Width - 138;
         }
     }
 }

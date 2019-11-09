@@ -15,7 +15,7 @@ namespace JarrettVance.ChapterTools
         public QuickOpenDialog()
         {
             InitializeComponent();
-            this.MinimumSize = new Size(650, 400);
+            this.MinimumSize = new Size(700, 400);
             QuickOpen(Settings.Default.QuickOpenDir);
         }
 

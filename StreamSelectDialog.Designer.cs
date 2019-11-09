@@ -45,7 +45,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOK.Location = new System.Drawing.Point(531, 0);
+            this.btnOK.Location = new System.Drawing.Point(581, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(80, 30);
@@ -62,10 +62,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 17;
             this.listBox1.Location = new System.Drawing.Point(10, 10);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(614, 276);
+            this.listBox1.Size = new System.Drawing.Size(664, 276);
             this.listBox1.TabIndex = 2;
             this.listBox1.DoubleClick += new System.EventHandler(this.btnOK_Click);
             // 
@@ -73,7 +74,7 @@
             // 
             this.lblCounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCounts.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblCounts.Location = new System.Drawing.Point(492, 297);
+            this.lblCounts.Location = new System.Drawing.Point(542, 297);
             this.lblCounts.Name = "lblCounts";
             this.lblCounts.Size = new System.Drawing.Size(130, 16);
             this.lblCounts.TabIndex = 9;
@@ -99,7 +100,7 @@
             this.flowLayoutPanel1.Controls.Add(this.checkBoxGreaterThan50);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 293);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(439, 25);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(489, 25);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // checkBoxLessThan20mins
@@ -146,7 +147,7 @@
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.AutoSize = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(447, 0);
+            this.btnCancel.Location = new System.Drawing.Point(497, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 30);
@@ -165,7 +166,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(14, 322);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(611, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(661, 30);
             this.flowLayoutPanel2.TabIndex = 11;
             // 
             // StreamSelectDialog
@@ -174,7 +175,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(634, 361);
+            this.ClientSize = new System.Drawing.Size(684, 361);
             this.ControlBox = false;
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.lblCounts);

@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuickOpenDialog));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
             this.txtFolder = new System.Windows.Forms.TextBox();
@@ -46,7 +47,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(14, 322);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(611, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(661, 30);
             this.flowLayoutPanel2.TabIndex = 17;
             // 
             // btnOK
@@ -54,7 +55,7 @@
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.AutoSize = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOK.Location = new System.Drawing.Point(531, 0);
+            this.btnOK.Location = new System.Drawing.Point(581, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(0);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(80, 30);
@@ -71,14 +72,14 @@
             this.txtFolder.Location = new System.Drawing.Point(10, 10);
             this.txtFolder.Name = "txtFolder";
             this.txtFolder.ReadOnly = true;
-            this.txtFolder.Size = new System.Drawing.Size(576, 24);
+            this.txtFolder.Size = new System.Drawing.Size(626, 24);
             this.txtFolder.TabIndex = 14;
             // 
             // btnDir
             // 
             this.btnDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDir.Image = global::JarrettVance.ChapterTools.Properties.Resources.folder;
-            this.btnDir.Location = new System.Drawing.Point(591, 9);
+            this.btnDir.Image = ((System.Drawing.Image)(resources.GetObject("btnDir.Image")));
+            this.btnDir.Location = new System.Drawing.Point(641, 9);
             this.btnDir.Name = "btnDir";
             this.btnDir.Size = new System.Drawing.Size(34, 26);
             this.btnDir.TabIndex = 15;
@@ -99,7 +100,7 @@
             this.flowDiscs.Location = new System.Drawing.Point(10, 40);
             this.flowDiscs.Name = "flowDiscs";
             this.flowDiscs.Padding = new System.Windows.Forms.Padding(4);
-            this.flowDiscs.Size = new System.Drawing.Size(614, 273);
+            this.flowDiscs.Size = new System.Drawing.Size(664, 273);
             this.flowDiscs.TabIndex = 18;
             // 
             // discItem1
@@ -107,7 +108,7 @@
             this.discItem1.BackColor = System.Drawing.Color.White;
             this.discItem1.Location = new System.Drawing.Point(7, 7);
             this.discItem1.Name = "discItem1";
-            this.discItem1.Size = new System.Drawing.Size(598, 54);
+            this.discItem1.Size = new System.Drawing.Size(648, 60);
             this.discItem1.TabIndex = 0;
             // 
             // QuickOpenDialog
@@ -116,7 +117,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(100, 0);
             this.CancelButton = this.btnOK;
-            this.ClientSize = new System.Drawing.Size(634, 361);
+            this.ClientSize = new System.Drawing.Size(684, 361);
             this.ControlBox = false;
             this.Controls.Add(this.flowDiscs);
             this.Controls.Add(this.flowLayoutPanel2);

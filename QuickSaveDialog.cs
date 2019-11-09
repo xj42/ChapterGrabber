@@ -16,8 +16,8 @@ namespace JarrettVance.ChapterTools
         public QuickSaveDialog(ChapterInfo pgc)
         {
             InitializeComponent();
+            this.MinimumSize = new Size(700, 400);
             this.pgc = pgc;
-            this.MinimumSize = new Size(650, 400);
             QuickSave(Settings.Default.LastOpenDir);
         }
 

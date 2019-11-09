@@ -16,7 +16,7 @@ namespace JarrettVance.ChapterTools
         public StreamSelectDialog(ChapterExtractor extractor)
         {
             InitializeComponent();
-            this.MinimumSize = new Size(650, 400);
+            this.MinimumSize = new Size(700, 400);
             extracted = new List<ChapterInfo>();
 
             extractor.StreamDetected += (sender, arg) =>
@@ -38,8 +38,6 @@ namespace JarrettVance.ChapterTools
             extractor.ExtractionComplete += (sender, arg) =>
             {
                 Reload();
-                if (listBox1.Items.Count > 0)
-                    listBox1.SelectedIndex = 0;
             };
         }
 
@@ -66,7 +64,10 @@ namespace JarrettVance.ChapterTools
             {
                 var vol = extracted.First().VolumeName;
                 if (!string.IsNullOrEmpty(vol))
+                {
                     this.Text = "Select Stream from " + vol;
+                    listBox1.SelectedIndex = 0;
+                }
             }
         }
 

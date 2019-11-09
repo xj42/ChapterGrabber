@@ -61,7 +61,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblError);
             this.Name = "ErrorItem";
-            this.Size = new System.Drawing.Size(498, 47);
+            this.Size = new System.Drawing.Size(540, 47);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

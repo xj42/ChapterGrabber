@@ -470,8 +470,7 @@ namespace JarrettVance.ChapterTools
             // 
             // txtChapterTime
             // 
-            this.txtChapterTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtChapterTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtChapterTime.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtChapterTime.Location = new System.Drawing.Point(58, 254);
             this.txtChapterTime.MaxLength = 12;
@@ -521,6 +520,7 @@ namespace JarrettVance.ChapterTools
             this.Text = "ChapterGrabber";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.frmMain_Closing);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);

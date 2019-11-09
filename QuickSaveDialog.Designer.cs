@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuickSaveDialog));
             this.txtFolder = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -44,7 +45,7 @@
             this.txtFolder.Location = new System.Drawing.Point(10, 10);
             this.txtFolder.Name = "txtFolder";
             this.txtFolder.ReadOnly = true;
-            this.txtFolder.Size = new System.Drawing.Size(576, 24);
+            this.txtFolder.Size = new System.Drawing.Size(626, 24);
             this.txtFolder.TabIndex = 2;
             // 
             // lblStatus
@@ -56,7 +57,7 @@
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblStatus.Location = new System.Drawing.Point(10, 40);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(614, 273);
+            this.lblStatus.Size = new System.Drawing.Size(664, 273);
             this.lblStatus.TabIndex = 4;
             this.lblStatus.Text = "Saving to \'\'";
             // 
@@ -68,14 +69,14 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(14, 322);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(611, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(661, 30);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOK.Location = new System.Drawing.Point(531, 0);
+            this.btnOK.Location = new System.Drawing.Point(581, 0);
             this.btnOK.Margin = new System.Windows.Forms.Padding(0);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(80, 30);
@@ -87,8 +88,8 @@
             // btnDir
             // 
             this.btnDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDir.Image = global::JarrettVance.ChapterTools.Properties.Resources.folder;
-            this.btnDir.Location = new System.Drawing.Point(591, 9);
+            this.btnDir.Image = ((System.Drawing.Image)(resources.GetObject("btnDir.Image")));
+            this.btnDir.Location = new System.Drawing.Point(641, 9);
             this.btnDir.Name = "btnDir";
             this.btnDir.Size = new System.Drawing.Size(34, 26);
             this.btnDir.TabIndex = 3;
@@ -101,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnOK;
-            this.ClientSize = new System.Drawing.Size(634, 361);
+            this.ClientSize = new System.Drawing.Size(684, 361);
             this.ControlBox = false;
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.lblStatus);
