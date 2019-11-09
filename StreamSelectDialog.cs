@@ -16,8 +16,8 @@ namespace JarrettVance.ChapterTools
         public StreamSelectDialog(ChapterExtractor extractor)
         {
             InitializeComponent();
-            extracted = new List<ChapterInfo>();
             this.MinimumSize = new Size(650, 400);
+            extracted = new List<ChapterInfo>();
 
             extractor.StreamDetected += (sender, arg) =>
               {
@@ -38,8 +38,9 @@ namespace JarrettVance.ChapterTools
             extractor.ExtractionComplete += (sender, arg) =>
             {
                 Reload();
+                if (listBox1.Items.Count > 0)
+                    listBox1.SelectedIndex = 0;
             };
-
         }
 
         private bool Hidden(ChapterInfo pgc)
