@@ -46,7 +46,6 @@ namespace JarrettVance.ChapterTools
         private System.Windows.Forms.MenuItem menuFile;
         private System.Windows.Forms.MenuItem menuEdit;
         private System.Windows.Forms.MenuItem menuEditClipboardImport;
-        private System.Windows.Forms.MenuItem miSearch;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.MenuItem menuFileSave;
@@ -118,18 +117,12 @@ namespace JarrettVance.ChapterTools
             this.menuChangeFps = new System.Windows.Forms.MenuItem();
             this.miDelay = new System.Windows.Forms.MenuItem();
             this.menuEditClipboardImport = new System.Windows.Forms.MenuItem();
-            this.miSearch = new System.Windows.Forms.MenuItem();
             this.menuCurrentFps = new System.Windows.Forms.MenuItem();
             this.menuLang = new System.Windows.Forms.MenuItem();
-            this.miDatabaseCredentials = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.miImportDurations = new System.Windows.Forms.MenuItem();
             this.miIgnoreShortLastChapter = new System.Windows.Forms.MenuItem();
-            this.miAutoUseDb = new System.Windows.Forms.MenuItem();
-            this.miWarnInvalidTitle = new System.Windows.Forms.MenuItem();
             this.menuHelp = new System.Windows.Forms.MenuItem();
-            this.miAutoCheck = new System.Windows.Forms.MenuItem();
-            this.miUpdate = new System.Windows.Forms.MenuItem();
             this.menuHelpAbout = new System.Windows.Forms.MenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -253,15 +246,11 @@ namespace JarrettVance.ChapterTools
             this.menuChangeFps,
             this.miDelay,
             this.menuEditClipboardImport,
-            this.miSearch,
             this.menuCurrentFps,
             this.menuLang,
-            this.miDatabaseCredentials,
             this.menuItem2,
             this.miImportDurations,
-            this.miIgnoreShortLastChapter,
-            this.miAutoUseDb,
-            this.miWarnInvalidTitle});
+            this.miIgnoreShortLastChapter});
             this.menuEdit.Text = "Edit";
             // 
             // menuResetNames
@@ -288,90 +277,44 @@ namespace JarrettVance.ChapterTools
             this.menuEditClipboardImport.Text = "Import Names from Clipboard";
             this.menuEditClipboardImport.Click += new System.EventHandler(this.menuEditClipboardImport_Click);
             // 
-            // miSearch
-            // 
-            this.miSearch.Enabled = false;
-            this.miSearch.Index = 4;
-            this.miSearch.Shortcut = System.Windows.Forms.Shortcut.F3;
-            this.miSearch.Text = "Search Names on Internet";
-            this.miSearch.Visible = false;
-            // 
             // menuCurrentFps
             // 
-            this.menuCurrentFps.Index = 5;
+            this.menuCurrentFps.Index = 4;
             this.menuCurrentFps.Text = "Current FPS";
             // 
             // menuLang
             // 
-            this.menuLang.Index = 6;
+            this.menuLang.Index = 5;
             this.menuLang.Text = "Current Language";
-            // 
-            // miDatabaseCredentials
-            // 
-            this.miDatabaseCredentials.Enabled = false;
-            this.miDatabaseCredentials.Index = 7;
-            this.miDatabaseCredentials.Text = "Database Credentials";
-            this.miDatabaseCredentials.Visible = false;
             // 
             // menuItem2
             // 
-            this.menuItem2.Index = 8;
+            this.menuItem2.Index = 6;
             this.menuItem2.Text = "-";
             // 
             // miImportDurations
             // 
-            this.miImportDurations.Index = 9;
+            this.miImportDurations.Index = 7;
             this.miImportDurations.Text = "Import Duration with Names";
             this.miImportDurations.Click += new System.EventHandler(this.menuEditTimesImport_Click);
             // 
             // miIgnoreShortLastChapter
             // 
             this.miIgnoreShortLastChapter.Checked = true;
-            this.miIgnoreShortLastChapter.Index = 10;
+            this.miIgnoreShortLastChapter.Index = 8;
             this.miIgnoreShortLastChapter.Text = "Ignore Short Last Chapter";
             this.miIgnoreShortLastChapter.Click += new System.EventHandler(this.miIgnoreShortLastChapter_Click);
-            // 
-            // miAutoUseDb
-            // 
-            this.miAutoUseDb.Checked = true;
-            this.miAutoUseDb.Enabled = false;
-            this.miAutoUseDb.Index = 11;
-            this.miAutoUseDb.Text = "Sync Online Database";
-            this.miAutoUseDb.Visible = false;
-            // 
-            // miWarnInvalidTitle
-            // 
-            this.miWarnInvalidTitle.Checked = true;
-            this.miWarnInvalidTitle.Index = 12;
-            this.miWarnInvalidTitle.Text = "Check Valid Title Upon Save";
             // 
             // menuHelp
             // 
             this.menuHelp.Index = 2;
             this.menuHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miAutoCheck,
-            this.miUpdate,
             this.menuHelpAbout});
             this.menuHelp.Text = "Help";
             // 
-            // miAutoCheck
-            // 
-            this.miAutoCheck.Checked = true;
-            this.miAutoCheck.Enabled = false;
-            this.miAutoCheck.Index = 0;
-            this.miAutoCheck.Text = "Check for Update on Startup";
-            this.miAutoCheck.Visible = false;
-            // 
-            // miUpdate
-            // 
-            this.miUpdate.Enabled = false;
-            this.miUpdate.Index = 1;
-            this.miUpdate.Text = "Check for Update Now";
-            this.miUpdate.Visible = false;
-            // 
             // menuHelpAbout
             // 
-            this.menuHelpAbout.Index = 2;
+            this.menuHelpAbout.Index = 0;
             this.menuHelpAbout.Shortcut = System.Windows.Forms.Shortcut.F1;
             this.menuHelpAbout.Text = "About";
             this.menuHelpAbout.Click += new System.EventHandler(this.menuHelpAbout_Click);
@@ -595,13 +538,9 @@ namespace JarrettVance.ChapterTools
         private MenuItem menuCurrentFps;
         private ToolStripDropDownButton tsslFps;
         private ToolStripDropDownButton tsslLang;
-        private MenuItem miAutoCheck;
-        private MenuItem miAutoUseDb;
-        private MenuItem miDatabaseCredentials;
         private ToolTip toolTip1;
         private ToolTip toolTipTitle;
         private ContextMenuStrip menuTitles;
-        private MenuItem miWarnInvalidTitle;
         private MenuItem menuQuickSave;
         private MenuItem menuQuickOpen;
         private MenuItem miDelay;
@@ -615,7 +554,6 @@ namespace JarrettVance.ChapterTools
         private Button btnAdd;
         private Label label6;
         private TextBox txtChapterName;
-        private MenuItem miUpdate;
     }
 }
 

@@ -151,12 +151,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SearchResultItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SearchResultItem.Designer.cs">
-      <DependentUpon>SearchResultItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="DelayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,9 +258,6 @@
     <None Include="Resources\star.png" />
     <None Include="Resources\attn.png" />
     <None Include="Resources\folder.png" />
-    <EmbeddedResource Include="SearchResultItem.resx">
-      <DependentUpon>SearchResultItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DelayForm.resx">
       <DependentUpon>DelayForm.cs</DependentUpon>
     </EmbeddedResource>

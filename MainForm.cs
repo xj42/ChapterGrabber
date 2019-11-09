@@ -82,8 +82,6 @@ namespace JarrettVance.ChapterTools
 
             miIgnoreShortLastChapter.Checked = Settings.Default.IgnoreShortLastChapter;
             miImportDurations.Checked = Settings.Default.ImportDurations;
-            miAutoCheck.Checked = false;
-            miAutoUseDb.Checked = false;
 
             LoadFpsMenus();
             LoadLangMenu();
