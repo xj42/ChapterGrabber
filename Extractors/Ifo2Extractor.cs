@@ -52,7 +52,39 @@ namespace JarrettVance.ChapterTools.Extractors
       return Enumerable.Repeat(pgc, 1).ToList();
     }
 
-    List<ChapterEntry> GetChapters(string ifoFile, int programChain, out TimeSpan duration, out double fps)
+
+        public List<ChapterInfo> GetStreams(string location, int title)
+        {
+            int titleSetNum = title;
+
+            if (location.StartsWith("VTS_"))
+            {
+                titleSetNum = int.Parse(Path.GetFileNameWithoutExtension(location)
+                 .ToUpper()
+                 .Replace("VTS_", string.Empty)
+                 .Replace("_0.IFO", string.Empty));
+            }
+
+            ChapterInfo pgc = new ChapterInfo();
+            pgc.SourceType = "DVD";
+            pgc.SourceName = location;
+            pgc.SourceHash = ChapterExtractor.ComputeMD5Sum(location);
+            pgc.Extractor = Application.ProductName + " " + Application.ProductVersion;
+            pgc.Title = Path.GetFileNameWithoutExtension(location);
+            OnStreamDetected(pgc);
+
+            TimeSpan duration;
+            double fps;
+            pgc.Chapters = GetChapters(location, titleSetNum, out duration, out fps);
+            pgc.Duration = duration;
+            pgc.FramesPerSecond = fps;
+            OnChaptersLoaded(pgc);
+            pgc.TitleNumber = titleSetNum;
+            OnExtractionComplete();
+            return Enumerable.Repeat(pgc, 1).ToList();
+        }
+
+        List<ChapterEntry> GetChapters(string ifoFile, int programChain, out TimeSpan duration, out double fps)
     {
       List<ChapterEntry> chapters = new List<ChapterEntry>();
       duration = TimeSpan.Zero;
