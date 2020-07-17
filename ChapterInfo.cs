@@ -12,6 +12,7 @@ namespace JarrettVance.ChapterTools
     public class ChapterInfo
     {
         public string Title { get; set; }
+        public int TitleNumber { get; set; }
         public int? ChapterSetId { get; set; }
         public String ImdbId { get; set; }
         public int? MovieDbId { get; set; }
@@ -44,7 +45,7 @@ namespace JarrettVance.ChapterTools
 
         public override string ToString()
         {
-            return string.Format("{0}, {1}, {2} chapter(s)", SourceName, Duration.ToShortString(), Chapters.Count);
+            return string.Format("Title {0} {1}, {2}, {3} chapter(s) ", TitleNumber, SourceName, Duration.ToShortString(), Chapters.Count);
         }
 
         public void ChangeFps(double fps)

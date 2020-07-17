@@ -1,5 +1,8 @@
 ChapterGrabber
 
+2020-07-17:
+- added title numbers to DVD information
+
 r4dius fork :
 --------------------
 2019-09-11 : v5.5
