@@ -95,7 +95,7 @@ namespace JarrettVance.ChapterTools
 
         public override string ToString()
         {
-            return string.Format("{0}, {1}, {2} chapter(s) Title {3}", SourceName, Duration.ToShortString(), Chapters.Count, TitleNumber);
+            return string.Format("Title {0} {1}, {2}, {3} chapter(s) ", TitleNumber, SourceName, Duration.ToShortString(), Chapters.Count);
         }
 
         public void ChangeFps(double fps)
